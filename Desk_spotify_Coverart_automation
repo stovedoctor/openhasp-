@@ -1,0 +1,53 @@
+# automation for home assistant for Spotify album covers
+
+alias: openhasp_desk_spotify_coverart
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - media_player.spotify_smarthome1
+condition:
+  - condition: template
+    value_template: |
+      {{ trigger.from_state.attributes.entity_picture !=
+         trigger.to_state.attributes.entity_picture }}
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ state_attr('media_player.spotify_smarthome1','entity_picture')
+              != None }}
+        sequence:
+          - service: openhasp.push_image
+            target:
+              entity_id: openhasp.desk
+            data:
+              image: >-
+                http://192.168.2.47:8123{{
+                state_attr('media_player.spotify_smarthome1','entity_picture')
+                }}
+              obj: p4b51
+              width: 320
+              height: 480
+          - service: openhasp.command
+            target:
+              entity_id:
+                - openhasp.desk
+            data:
+              keyword: p4b50.hidden
+              parameters: "0"
+      - conditions:
+          - condition: template
+            value_template: >-
+              {{ state_attr('media_player.spotify_smarthome1','entity_picture')
+              == None }}
+        sequence:
+          - service: openhasp.command
+            target:
+              entity_id:
+                - openhasp.desk
+            data:
+              keyword: p4b50.hidden
+              parameters: "1"
+mode: single
