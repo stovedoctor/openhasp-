@@ -1,5 +1,6 @@
 # openhasp-
-Open hasp with Landon l8 switch 
+Open hasp with Landon l8 switch (plate35 files)
+Openhasp with WT32-SC01 Plus 320x480 {desk files}
 
 Thanks to all that have shared their 
 code examples 
