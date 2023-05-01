@@ -1,4 +1,10 @@
-# automation for home assistant for Spotify album covers
+# automation for home assistant for Spotify album covers. 
+#make sure you updated your server IP
+#plate name in openhasp command
+
+#works best when using main spot cast player linked Spotify integration as media player so it will update if any speaker media player is playing. 
+
+# yaml code from automation UI below #
 
 alias: openhasp_desk_spotify_coverart
 description: ""
