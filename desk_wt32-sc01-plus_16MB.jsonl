@@ -1,0 +1,282 @@
+"desk at hallway 320 W x 480 H"
+
+
+{"id":0,"bg_color":"#000"}
+{"page":1,"id":0,"bg_color":"#000"}
+{"page":2,"id":0,"bg_color":"#000"}
+{"page":3,"id":0,"bg_color":"#000"}
+{"page":4,"id":0,"bg_color":"white"}
+{"page":5,"id":0,"bg_color":"#000"}
+
+
+
+{"page":0,"id":1,"obj":"obj","action":"p1","x":1,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":24,"value_color":"#000","bg_color":"#bdb2ff","value_str":"\uE2DC"}
+{"page":0,"id":2,"obj":"obj","action":"p2","x":66,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#caffbf","value_str":"\uF40B"}
+{"page":0,"id":5,"obj":"obj","action":"p5","x":131,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#fdffb6","value_str":"\uE67F"}
+{"page":0,"id":4,"obj":"obj","action":"p4","x":196,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#ffc6ff","value_str":"\uE75A"}
+{"page":0,"id":3,"obj":"obj","action":"p3","x":261,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#ffc6ff","value_str":"\uE150"}
+
+{"page":1,"id":1,"obj":"obj","x":5,"y":75,"w":145,"h":80,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
+
+{"page":1,"id":2,"obj":"label","x":0,"y":75,"w":145,"h":70,"text_color":"#000","text_font":42,"text":"\uE50F"}
+
+{"page":1,"id":3,"obj":"label","x":5,"y":70,"w":145,"h":70,"text_color":"#000","text_font":42,"text":"xx.x°","align":"center"}
+
+{"page":1,"id":32,"obj":"label","x":5,"y":115,"w":145,"h":70,"text_color":"#000","text_font":28,"text":"Living Room","align":"center"}
+
+
+{"page":1,"id":4,"obj":"obj","x":170,"y":75,"w":145,"h":80,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
+{"page":1,"id":5,"obj":"label","x":165,"y":75,"w":145,"h":70,"text_color":"#000","text_font":42,"text":"\uE50F"}
+{"page":1,"id":6,"obj":"label","x":170,"y":70,"w":145,"h":70,"text_color":"#000","text_font":42,"text":"xx.x°","align":"center"}
+{"page":1,"id":62,"obj":"label","x":170,"y":115,"w":145,"h":70,"text_color":"#000","text_font":28,"text":"Out Door","align":"center"}
+
+{"page":1,"id":7,"obj":"dropdown","x":5,"y":220,"w":310,"h":30,"text_font":31,"options":"Light Scene\nTV time\nBright\nBed Time","bg_color":"#bdb2ff","direction":"down"}
+{"page":1,"id":8,"obj":"dropdown","x":5,"y":160,"w":310,"h":30,"text_font":31,"options":"Living Room Off\nLiving Room Bright\nLiving Room Med\nLiving Room Dim","bg_color":"#caffbf"}
+
+
+
+{"page":1,"id":63,"obj":"label","x":0,"y":275,"w":182,"h":40,"text_color":"white","text":"\uE50FClimate Settings"}
+{"page":1,"id":25,"obj":"switch","x":250,"y":279,"w":65,"h":30,"radius":25,"radius20":25}
+{"page":1,"id":26,"obj":"label","x":195,"y":275,"w":50,"h":30,"text":"Party","text_font":24}
+
+"cooler roller thermostat"
+{"page":1,"id":28,
+"obj":"roller","x":1,"y":325,"w":130,"h":30,"bg_color":"#bdb2ff",
+"options": "74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n88\n90","mode":2,"rows":3,"text_font":31,"text_color50":"Blue"}
+
+{"page":1,"id":29,"obj":"label","x":5,"y":325,"w":60,"h":60,"text":"\uE717","text_font":45,"text_color":"blue"}
+
+"pellets"
+
+
+"pellets"
+{"page":1,"id":16,"obj":"label","x":136,"y":323,"w":60,"h":60,"text":"pellet","text_font":20,"text_color":"white"}
+{"page":1,"id":17,"obj":"label","x":136,"y":350,"w":60,"h":60,"text":"Level","text_font":20,"text_color":"white"}
+{"page":1,"id":18,"obj":"img","x":139,"y":375,"w":39,"h":100,"auto_size":0,"src":"L:/pelletBar.png","click":0,"image_opa":255}
+{"page":1,"id":19,"obj":"obj","x":139, "y":375,"w":39,"h":100,"radius":5,"bg_color":"black","click":0,"shadow_opa":250,"shadow_color":"white"}
+
+
+
+"pellet heat roller thermostat"
+{"page":1,"id":27,
+"obj":"roller","x":187,"y":325,"w":130,"h":30,"bg_color":"#bdb2ff",
+"options": "60\n65\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78","mode":2,"rows":3,"text_font":31,"text_color50":"Red"}
+{"page":1,"id":30,"obj":"label","x":179,"y":325,"w":60,"h":60,"text":"\uE238","text_font":45,"text_color":"Red"}
+
+"pag2 lights"
+
+{"page":2,"id":1,"obj":"btn","x":1,"y":80,"w":155,"h":60,"radius":30,
+"toggle":true,"text":"Kitchen \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow"}
+
+{"page":2,"id":2,"obj":"btn","x":1,"y":155,"w":155,"h":60,"radius":30,
+"toggle":true,"text":"Dining \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow"}
+
+{"page":2,"id":3,"obj":"btn","x":165,"y":80,"w":155,"h":60,"radius":30,
+"toggle":true,"text":"Office \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow"}
+
+{"page":2,"id":4,"obj":"btn","x":165,"y":155,"w":155,"h":60,"radius":30,
+"toggle":true,"text":"Hallway \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow"}
+
+{"page":2,"id":5,"obj":"slider","x":30,"y":240,"w":250,"h":50,"min":0,"max":255,"bg_color":"white"}
+{"page":2,"id":6,"obj":"label","x":40,"y":248,"w":230,"h":50,"text_color":"#000","text_font":28,"text":"Living Room Light","click":0}
+
+{"page":2,"id":7,"obj":"btn","x":1,"y":318,"w":155,"h":60,"radius":30,
+"toggle":true,"text":"Patio \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow"}
+{"page":2,"id":8,"obj":"btn","x":165,"y":318,"w":155,"h":60,"radius":30,
+"toggle":true,"text":"Door \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow"}
+
+{"page":2,"id":9,"obj":"btn","x":1,"y":410,"w":319,"h":60,"radius":30,
+"toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow","toggle":false}
+
+
+"Rain"
+{"page":3,"id":1,"obj":"obj","x":3,"y":75,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
+{"page":3,"id":2,"obj":"label","x":3,"y":75,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE58C"}
+{"page":3,"id":3,"obj":"label","x":6,"y":100,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
+{"page":3,"id":32,"obj":"label","x":35,"y":80,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rain Today"}
+
+
+{"page":3,"id":4,"obj":"obj","x":3,"y":155,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
+{"page":3,"id":5,"obj":"label","x":6,"y":155,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE596"}
+{"page":3,"id":6,"obj":"label","x":3,"y":180,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
+{"page":3,"id":62,"obj":"label","x":45,"y":160,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rate PrH"}
+
+{"page":3,"id":7,"obj":"obj","x":3,"y":235,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#FFE5CC"}
+{"page":3,"id":8,"obj":"label","x":3,"y":230,"w":40,"h":70,"text_color":"#000","text_font":32,"text":"\uE59D"}
+{"page":3,"id":9,"obj":"label","x":3,"y":260,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"XX.XX MPH","align":"center"}
+{"page":3,"id":92,"obj":"label","x":10,"y":235,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Wind","align":"center"}
+
+"Temp"
+{"page":3,"id":10,"obj":"obj","x":165,"y":75,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#ff9933"}
+{"page":3,"id":12,"obj":"label","x":165,"y":70,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE50F"}
+{"page":3,"id":13,"obj":"label","x":168,"y":100,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
+{"page":3,"id":132,"obj":"label","x":197,"y":80,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Out Door"}
+
+
+{"page":3,"id":14,"obj":"obj","x":165,"y":155,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
+{"page":3,"id":15,"obj":"label","x":168,"y":155,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE58E"}
+{"page":3,"id":16,"obj":"label","x":165,"y":180,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x%","align":"center"}
+{"page":3,"id":162,"obj":"label","x":205,"y":160,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Humidity"}
+
+
+{"page":3,"id":17,"obj":"obj","x":165,"y":235,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"gold"}
+{"page":3,"id":18,"obj":"label","x":165,"y":230,"w":40,"h":70,"text_color":"#000","text_font":32,"text":"\uE599"}
+{"page":3,"id":19,"obj":"label","x":165,"y":260,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"XX.XX KW","align":"center"}
+{"page":3,"id":192,"obj":"label","x":172,"y":235,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Solar","align":"center"}
+
+"forcast"
+{"page":3,"id":20,"obj":"obj","x":3,"y":315,"w":310,"h":165,"radius":10,"click":0,"border_side":0,"bg_color":"#FFE5CC"}
+
+{"page":3,"id":21,"obj":"label","x":115,"y":310,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Forcast"}
+
+{"page":3,"id":22,"obj":"label","x":15,"y":370,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Day1"}
+
+{"page":3,"id":24,"obj":"label","x":15,"y":345,"w":125,"h":45,"text_color":"#000","text_font":24,"text":"Today"}
+
+{"page":3,"id":25,"obj":"label","x":115,"y":370,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Day2"}
+
+{"page":3,"id":26,"obj":"label","x":100,"y":345,"w":125,"h":45,"text_color":"#000","text_font":24,"text":"Tomorrow"}
+
+{"page":3,"id":27,"obj":"label","x":220,"y":370,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Day3"}
+
+{"page":3,"id":28,"obj":"label","x":220,"y":345,"w":125,"h":45,"text_color":"#000","text_font":24,"text":"Day After"}
+
+"forcast Temp"
+{"page":3,"id":29,"obj":"label","x":15,"y":405,"w":80,"h":45,"text_color":"#FF3333","text_font":32,"text":"high"}
+
+{"page":3,"id":30,"obj":"label","x":115,"y":405,"w":80,"h":45,"text_color":"#FF3333","text_font":32,"text":"high"}
+
+{"page":3,"id":31,"obj":"label","x":220,"y":405,"w":80,"h":45,"text_color":"#FF3333","text_font":32,"text":"high"}
+
+{"page":3,"id":33,"obj":"label","x":15,"y":440,"w":80,"h":45,"text_color":"#00FFFF","text_font":32,"text":"low"}
+
+{"page":3,"id":34,"obj":"label","x":115,"y":440,"w":80,"h":45,"text_color":"#00FFFF","text_font":32,"text":"low"}
+
+{"page":3,"id":35,"obj":"label","x":220,"y":440,"w":80,"h":45,"text_color":"#00FFFF","text_font":32,"text":"low"}
+
+
+
+"media"
+{"page":4,"id":50,"obj":"obj","x":1,"y":70,"w":319,"h":410,"radius":6,"clip_corner":1,"hidden":1}
+{"page":4,"id":51,"obj":"img","x":0,"y":0,"w":319,"h":410,"parentid":50,"src":"","auto_size":1}
+
+{"page":4,"id":1,"obj":"obj","x":18,"y":140,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
+  ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10
+}
+{"page":4,"id":2,"obj":"label","x":18,"y":140,"w":110,"h":32,"text_color":"#fff","text_font":32,"text":"\uE3E4","align":1,"click":false}
+{"page":4,"id":3,"obj":"label","x":18,"y":175,"w":110,"h":25,"text_color":"#fff","text_font":24,"text":"Pause","align":1,"click":false}
+
+
+{"page":4,"id":16,"obj":"obj","x":18,"y":237,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
+  ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
+{"page":4,"id":17,"obj":"label","x":18,"y":238,"w":110,"h":32,"text_color":"#fff","text_font":32,"text":"\uE75A","align":1,"click":false}
+{"page":4,"id":18,"obj":"label","x":18,"y":270,"w":110,"h":25,"text_color":"#fff","text_font":24,"text":"Start","align":1,"click":false}
+
+
+
+{"page":4,"id":10,"obj":"obj","x":198,"y":140,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
+  ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
+{"page":4,"id":11,"obj":"label","x":198,"y":135,"w":110,"h":50,"text_color":"#FFF","text_font":32,"text":"\uE4AE","align":1,"click":false}
+{"page":4,"id":12,"obj":"label","x":198,"y":171,"w":110,"h":50,"text_color":"#FFF","text_font":24,"text":"Previous","align":1,"click":false}
+
+{"page":4,"id":13,"obj":"obj","x":198,"y":237,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
+  ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
+{"page":4,"id":14,"obj":"label","x":195,"y":235,"w":110,"h":50,"text_color":"#FFF","text_font":32,"text":"\uE4AD","align":1,"click":false}
+{"page":4,"id":15,"obj":"label","x":195,"y":268,"w":110,"h":50,"text_color":"#FFF","text_font":24,"text":"Next","align":1,"click":false}
+
+"volume"
+{"page":4,"id":19,"obj":"slider","x":25,"y":330,"w":280,"h":35,"min":0,"max":100,"bg_opa":150,"border_color":"#00FF00","border_width":2,"radius20":15,"bg_opa20":150,"bg_opa10":150,"border_color20":"#00FF00","border_width20":2,"shadow_color20":"#00FF00","shadow_ofs_y20":-3,"shadow_ofs_x20":-3,"shadow_width20":10}
+{"page":4,"id":66,"obj":"label","x":25,"y":330,"w":280,"h":40,"text_color":"#fff","text_font":28,"text":"Kitchen  \uE57E","click":0,"align":"center"}
+{"page":4,"id":22,"obj":"slider","x":25,"y":390,"w":280,"h":35,"min":0,"max":100,"bg_opa":150,"border_color":"#00FF00","border_width":2,"radius20":15,"bg_opa20":150,"bg_opa10":150,"border_color20":"#00FF00","border_width20":2,"shadow_color20":"#00FF00","shadow_ofs_y20":-3,"shadow_ofs_x20":-3,"shadow_width20":10}
+{"page":4,"id":67,"obj":"label","x":25,"y":390,"w":280,"h":40,"text_color":"#fff","text_font":28,"text":"Living Room  \uE57E","click":0,"align":"center"}  
+  
+
+
+"play list"
+{"page":4,"id":40,"obj":"dropdown","x":5,"y":435,"w":310,"h":30,"text_font":31,"options":"Relax\nCleaning \nRock out ","bg_color":"#caffbf","bg_opa":150}
+
+"weather"
+
+
+{"page":5,"id":2,"obj":"obj","x":1,"y":71,"w":318,"h":255,"click":0}
+
+{"page":5,"id":14,"obj":"img","src":"L:/openhasp_dummy_img.png","parentid":2,"auto_size":1,"w":128,"offset_x":-6,"offset_y":-10}
+
+{"page":5,"id":15,"obj":"label","x":140,"y":1,"w":180,"h":40,"align":"center","text":"date current","parentid":2}
+{"page":5,"id":16,"obj":"label","x":140,"y":34,"w":155,"h":40,"align":"center","text":"00.0°C","parentid":2,"text_font":42}
+{"page":5,"id":17,"obj":"label","x":140,"y":78,"w":155,"h":40,"align":"center","text":"condition","parentid":2}
+{"page":5,"id":19,"obj":"label","x":140,"y":100,"w":60,"h":30,"text":"#000000 \u2022# #909090 \u2022#","parentid":2,"text_font":24,"align":"center","text_color":"grey"}
+
+
+
+{"page":5,"id":10,"obj":"tabview","x":0,"y":0,"w":318,"h":360,"parentid":2,"btn_pos":0,"bg_opa":0,"border_width":0}
+{"page":5,"id":11,"obj":"tab","parentid":10}
+{"page":5,"id":12,"obj":"tab","parentid":10}
+
+{"page":5,"id":21,"obj":"label","x":8,"y":123,"w":160,"h":50,"align":"left","text":"hour+2","parentid":11,"pad_top":3,"click":0}
+{"page":5,"id":22,"obj":"label","x":220,"y":123,"w":50,"h":50,"align":"center","text":"00.0","parentid":11,"pad_top":-2,"text_font":24,"click":0}
+{"page":5,"id":23,"obj":"img","x":270,"y":118,"w":32,"h":50,"src":"L:/openhasp_dummy_img.png","parentid":11,"click":0}
+
+{"page":5,"id":31,"obj":"label","x":8,"y":154,"w":200,"h":50,"align":"left","text":"hour+3","parentid":11,"pad_top":3,"click":0}
+{"page":5,"id":32,"obj":"label","x":220,"y":160,"w":50,"h":50,"align":"center","text":"00.0","parentid":11,"pad_top":-2,"text_font":24,"click":0}
+{"page":5,"id":33,"obj":"img","x":270,"y":155,"w":32,"h":50,"src":"L:/openhasp_dummy_img.png","parentid":11,"click":0}
+
+{"page":5,"id":41,"obj":"label","x":8,"y":186,"w":130,"h":50,"align":"left","text":"hour+4","parentid":11,"pad_top":3,"click":0}
+{"page":5,"id":42,"obj":"label","x":220,"y":186,"w":50,"h":50,"align":"center","text":"00.0","parentid":11,"pad_top":-2,"text_font":24,"click":0}
+{"page":5,"id":43,"obj":"img","x":270,"y":182,"w":32,"h":50,"src":"L:/openhasp_dummy_img.png","parentid":11,"click":0}
+
+{"page":5,"id":51,"obj":"label","x":8,"y":218,"w":130,"h":50,"align":"left","text":"hour+5","parentid":11,"pad_top":3,"click":0}
+{"page":5,"id":52,"obj":"label","x":220,"y":218,"w":50,"h":50,"align":"center","text":"00.0","parentid":11,"pad_top":-2,"text_font":24,"click":0}
+{"page":5,"id":53,"obj":"img","x":270,"y":214,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":11,"click":0}
+
+"2nd tab"
+
+{"page":5,"id":61,"obj":"label","x":6,"y":123,"w":145,"h":50,"align":"left","text":"date+1","parentid":12,"pad_top":3,"click":0}
+{"page":5,"id":62,"obj":"label","x":160,"y":126,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Navy","click":0}
+{"page":5,"id":63,"obj":"label","x":210,"y":126,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Blush","click":0}
+{"page":5,"id":64,"obj":"img","x":260,"y":120,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":12,"click":0}
+
+{"page":5,"id":71,"obj":"label","x":6,"y":154,"w":145,"h":50,"align":"left","text":"date+2","parentid":12,"pad_top":3,"click":0}
+{"page":5,"id":72,"obj":"label","x":160,"y":157,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Navy","click":0}
+{"page":5,"id":73,"obj":"label","x":210,"y":157,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Blush","click":0}
+{"page":5,"id":74,"obj":"img","x":260,"y":153,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":12,"click":0}
+
+{"page":5,"id":81,"obj":"label","x":6,"y":186,"w":145,"h":50,"align":"left","text":"date+3","parentid":12,"pad_top":3,"click":0}
+
+{"page":5,"id":82,"obj":"label","x":160,"y":189,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Navy","click":0}
+
+{"page":5,"id":83,"obj":"label","x":210,"y":189,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Blush","click":0}
+{"page":5,"id":84,"obj":"img","x":260,"y":185,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":12,"click":0}
+
+{"page":5,"id":91,"obj":"label","x":6,"y":218,"w":145,"h":50,"align":"left","text":"date+4","parentid":12,"pad_top":3,"click":0}
+{"page":5,"id":92,"obj":"label","x":160,"y":221,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Navy","click":0}
+{"page":5,"id":93,"obj":"label","x":210,"y":221,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"pad_top":-2,"text_font":24,"text_color":"Blush","click":0}
+{"page":5,"id":94,"obj":"img","x":260,"y":217,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":12,"click":0}
+
+{"page":5,"id":114,"obj":"obj","x":5,"y":330,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
+{"page":5,"id":115,"obj":"label","x":5,"y":330,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE58E"}
+{"page":5,"id":116,"obj":"label","x":5,"y":355,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x%","align":"center"}
+{"page":5,"id":162,"obj":"label","x":40,"y":335,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Humidity"}
+
+
+{"page":5,"id":117,"obj":"obj","x":165,"y":330,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"gold"}
+{"page":5,"id":118,"obj":"label","x":165,"y":330,"w":40,"h":70,"text_color":"#000","text_font":32,"text":"\uE599"}
+{"page":5,"id":119,"obj":"label","x":165,"y":355,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"XX.XX KW","align":"center"}
+{"page":5,"id":192,"obj":"label","x":172,"y":335,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Solar","align":"center"}
+
+"Rain"
+{"page":5,"id":201,"obj":"obj","x":5,"y":405,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
+{"page":5,"id":202,"obj":"label","x":5,"y":405,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE58C"}
+{"page":5,"id":203,"obj":"label","x":5,"y":430,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
+{"page":5,"id":232,"obj":"label","x":40,"y":410,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rain Today"}
+
+
+{"page":5,"id":204,"obj":"obj","x":165,"y":405,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
+{"page":5,"id":205,"obj":"label","x":165,"y":405,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE596"}
+{"page":5,"id":206,"obj":"label","x":165,"y":430,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
+{"page":5,"id":252,"obj":"label","x":172,"y":410,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rate PrH","align":"center"}
+
+
+
+
+
