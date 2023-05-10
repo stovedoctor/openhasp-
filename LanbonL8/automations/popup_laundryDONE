@@ -1,0 +1,104 @@
+alias: "washer has finished "
+description: ""
+use_blueprint:
+  path: >-
+    sbyx/notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
+  input:
+    power_sensor: sensor.washer_energy_power
+    actions:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: binary_sensor.work_time_time_block
+                state: "off"
+            sequence:
+              - service: input_button.press
+                data: {}
+                target:
+                  entity_id: input_button.washer_done_button
+              - device_id: 04e4f0e04b65456ba33a7595f370505b
+                domain: select
+                entity_id: select.counter_preset
+                type: select_option
+                option: police
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 15
+                  milliseconds: 0
+              - device_id: 04e4f0e04b65456ba33a7595f370505b
+                domain: select
+                entity_id: select.counter_preset
+                type: select_option
+                option: Full white
+          - conditions:
+              - condition: state
+                entity_id: binary_sensor.work_time_time_block
+                state: "on"
+            sequence:
+              - device_id: 04e4f0e04b65456ba33a7595f370505b
+                domain: select
+                entity_id: select.counter_preset
+                type: select_option
+                option: police
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 15
+                  milliseconds: 0
+              - device_id: 04e4f0e04b65456ba33a7595f370505b
+                domain: select
+                entity_id: select.counter_preset
+                type: select_option
+                option: Full white
+              - service: light.turn_on
+                data:
+                  brightness_pct: 100
+                  profile: default
+                  effect: Strobe
+                target:
+                  entity_id: light.bathroom_lamp
+              - service: input_button.press
+                data: {}
+                target:
+                  entity_id: input_button.washer_done_work_time
+              - device_id: 9ffeed6ea5ad40a0ad731d174b3419fe
+                domain: select
+                entity_id: select.barb_s_bedroom_preset
+                type: select_option
+                option: police
+              - delay:
+                  hours: 0
+                  minutes: 0
+                  seconds: 15
+                  milliseconds: 0
+              - device_id: 9ffeed6ea5ad40a0ad731d174b3419fe
+                domain: select
+                entity_id: select.barb_s_bedroom_preset
+                type: select_option
+                option: Preset 3
+              - service: light.turn_off
+                data: {}
+                target:
+                  entity_id: light.bathroom_lamp
+        enabled: true
+      - service: mqtt.publish
+        data:
+          qos: 0
+          topic: hasp/plates/command/jsonl
+          payload: >-
+            {"page":0,"id":69,"obj":"msgbox","bg_color":"white","text_color":"Red","text":"\uE026
+            Washing Is Done \uE72A Do you want Smelly
+            Undies?","options":["Close"]}
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
+        target:
+          entity_id:
+            - light.desk1_backlight
+            - light.desk_backlight
+            - light.plate35_backlight
+    starting_hysteresis: 1.75
+    finishing_hysteresis: 6
+    starting_threshold: 59
+    finishing_threshold: 4
