@@ -1,0 +1,45 @@
+alias: "Plate35 blackout screen "
+description: |-
+  Renders black overlay when backlight is off to prevent burn in.
+  Deletes when back light on.
+trigger:
+  - platform: device
+    type: turned_off
+    device_id: ff2aa76f6ac729f1e9e243fa22ce23e1
+    entity_id: light.plate35_backlight
+    domain: light
+    id: backlight off
+  - platform: device
+    type: turned_on
+    device_id: ff2aa76f6ac729f1e9e243fa22ce23e1
+    entity_id: light.plate35_backlight
+    domain: light
+    id: backlight on
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: backlight off
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              topic: hasp/plate35/command/jsonl
+              payload: >-
+                {"page":0,"id":99,"obj":"obj","x":0,"y":0,"w":240,"h":320,"radius":0,"hidden":0,"bg_grad_dir":0,"bg_color":"black"}
+      - conditions:
+          - condition: trigger
+            id: backlight on
+        sequence:
+          - service: mqtt.publish
+            data:
+              qos: 0
+              topic: hasp/plate35/command/p0b99.hidden
+              payload: "1"
+          - service: mqtt.publish
+            data:
+              qos: 0
+              topic: hasp/desk1/command/p0b99.delete
+              payload: ""
+mode: single
