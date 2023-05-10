@@ -1,0 +1,1795 @@
+
+desk:
+  objects:
+
+# Page 1: living room quick look
+ 
+      - obj: "p1b3" # indoor Temperature
+        properties:
+          "text": '{{ states("sensor.livingroom_temperature_am2301_temperature") | round(0) }}°F'
+
+      - obj: "p1b6" # out door
+        properties:
+          "text": '{{ states("sensor.station_temperature") | round(0) }}°F'
+      
+#light scene drop down
+      - obj: "p1b7" # dropdown
+        properties:
+          "options": >
+            {% if (state_attr('input_select.light_scene_select','options') != none and states('input_select.light_scene_select') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.light_scene_select','options')%}{{item+"\n"|e}}{%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+          "val": >
+            {% if (state_attr('input_select.light_scene_select','options') != none and states('input_select.light_scene_select') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.light_scene_select','options')%}
+            {{loop.index -1 if item == states('input_select.light_scene_select') }}
+            {%-endfor%}{% endif %}
+        event:
+          "changed":
+            - service: input_select.select_option
+              data:
+                option: '{{ text }}'
+              target:
+                entity_id: input_select.light_scene_select
+                
+# Living room light bright drop down
+      - obj: "p1b8" # dropdown
+        properties:
+          "options": >
+            {% if (state_attr('input_select.living_room_light_bright','options') != none and states('input_select.living_room_light_bright') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.living_room_light_bright','options')%}{{item+"\n"|e}}{%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+          "val": >
+            {% if (state_attr('input_select.living_room_light_bright','options') != none and states('input_select.living_room_light_bright') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.living_room_light_bright','options')%}
+            {{loop.index -1 if item == states('input_select.living_room_light_bright') }}
+            {%-endfor%}{% endif %}
+        event:
+          "changed":
+            - service: input_select.select_option
+              data:
+                option: '{{ text }}'
+              target:
+                entity_id: input_select.living_room_light_bright                
+      
+      # - obj: "p1b7" # TV time living 
+      #   event:
+      #     "down":
+      #       - service: scene.turn_on
+      #         target:
+      #           entity_id: scene.tv_time            
+            
+
+      # - obj: "p1b10" # all bright
+      #   event:
+      #     "down":
+      #       - service: scene.turn_on
+      #         target:
+      #           entity_id: scene.all_bright
+
+      # - obj: "p1b13" # Light brightness
+      #   properties:
+      #     "val": "{{ state_attr('light.living_room_light', 'brightness') if state_attr('light.living_room_light', 'brightness') != None else 0 }}"
+      #     "value_str20": "{{ state_attr('light.living_room_light', 'brightness') if state_attr('light.living_room_light', 'brightness') != None else 0 }}"
+      #   event:
+      #     "changed":
+      #       - service: light.turn_on
+      #         data:
+      #           entity_id: light.living_room_light
+      #           brightness:  "{{ val }}"
+      #     "up":
+      #       - service: light.turn_on
+      #         data:
+      #           entity_id: light.living_room_light
+      #           brightness:  "{{ val }}"
+# #pellet stove 
+#       - obj: "p1b17" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p1b18" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'hvac_action') }}"
+             
+#       - obj: "p1b16"
+#         properties:
+#           "text": '{{ "\uE238" if is_state_attr("climate.heat", "hvac_action", "heating") else "\uE156" }}'
+
+#       - obj: "p1b16"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'          
+      
+#       - obj: "p1b18"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'                 
+# #cooler
+#       - obj: "p1b21" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p1b22" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'hvac_action') }}"
+             
+#       - obj: "p1b20"
+#         properties:
+#           "text": '{{ "\uE01B" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "\uE717" }}'
+
+#       - obj: "p1b22"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'          
+      
+#       - obj: "p1b20"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'    
+
+
+#       - obj: "p1b23" # pellet boost switch
+#         properties:
+#           "val": '{{ 1 if is_state("input_boolean.heat_boost_pellet", "on") else 0 }}'
+          
+#         event:
+#             "down":
+#             - service: homeassistant.toggle
+#               entity_id: "input_boolean.heat_boost_pellet"
+               
+#       - obj: "p1b24" # pellet boost RED
+#         properties:
+#           "text_color": '{{ "Red" if is_state("input_boolean.heat_boost_pellet", "on") else "white" }}'
+
+#party mode              
+      - obj: "p1b25" # party switch
+        properties:
+          "val": '{{ 1 if is_state("input_boolean.party_climate", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "input_boolean.party_climate"
+               
+      - obj: "p1b26" # party mode blue
+        properties:
+          "text_color": '{{ "Aqua" if is_state("input_boolean.party_climate", "on") else "white" }}'
+      - obj: "p1b30"
+        properties:
+          "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "grey" }}'          
+          
+      - obj: "p2b11" # TV plug
+        properties:
+          "val": '{{ 1 if is_state("switch.plug4", "on") else 0 }}'
+          "text": '{{ "\uE502 # ON" if is_state("switch.plug4", "on") else "\uE502 # OFF" | e }}'
+          "text_color": '{{ "White" if is_state("switch.plug4", "on") else "Red" }}'
+        event:
+          "long":
+            - service: homeassistant.toggle
+              entity_id: "switch.plug4" 
+              
+      # - obj: "p1b42" # PELLET progressbar
+      #   properties:
+      #     "val": '{{ states("sensor.pellet_level_in_percent") }} '             
+          # The actual shade
+
+# Pellet level
+      - obj: "p1b19"
+        properties:
+          "h": '{{ 100.00 -   (states("sensor.pellet_level_mean") * 1 ) | int }}'            
+           
+           
+#pellet climate roller
+      - obj: "p1b27" # roller
+        properties:
+
+          "jsonl": >
+            {% if state_attr('climate.heat','temperature') == 60 -%}
+            {"val":0}
+            {%-elif state_attr('climate.heat','temperature') == 65 -%}
+            {"val":1}
+            {%-elif state_attr('climate.heat','temperature') == 67 -%}
+            {"val":2}
+            {%-elif state_attr('climate.heat','temperature') == 68 -%}
+            {"val":3}
+            {%-elif state_attr('climate.heat','temperature') == 69 -%}
+            {"val":4}
+            {%-elif state_attr('climate.heat','temperature') == 70 -%}
+            {"val":5}
+            {%-elif state_attr('climate.heat','temperature') == 71 -%}
+            {"val":6}
+            {%-elif state_attr('climate.heat','temperature') == 72 -%}
+            {"val":7}
+            {%-elif state_attr('climate.heat','temperature') == 73 -%}
+            {"val":8}
+            {%-elif state_attr('climate.heat','temperature') == 74 -%}
+            {"val":9}
+            {%-elif state_attr('climate.heat','temperature') == 75 -%}
+            {"val":10}
+            {%-elif state_attr('climate.heat','temperature') == 76 -%}
+            {"val":11}
+            {%-elif state_attr('climate.heat','temperature') == 77 -%}
+            {"val":12}
+            {%-elif state_attr('climate.heat','temperature') == 78 -%}
+            {"val":13}
+            {% endif %}
+        event:
+          "changed":
+            - service: climate.set_temperature
+              data:
+                temperature: "{{ text }}"
+              target:
+                entity_id: climate.heat
+                
+      - obj: "p1b29"
+        properties:
+          "text_color": '{{ "blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "grey" }}'
+#cooler climate roller
+      - obj: "p1b28" # roller
+        properties:
+
+          "jsonl": >
+            {% if state_attr('climate.cooler','temperature') == 74 -%}
+            {"val":0}
+            {%-elif state_attr('climate.cooler','temperature') == 75 -%}
+            {"val":1}
+            {%-elif state_attr('climate.cooler','temperature') == 76 -%}
+            {"val":2}
+            {%-elif state_attr('climate.cooler','temperature') == 77 -%}
+            {"val":3}
+            {%-elif state_attr('climate.cooler','temperature') == 78 -%}
+            {"val":4}
+            {%-elif state_attr('climate.cooler','temperature') == 79 -%}
+            {"val":5}
+            {%-elif state_attr('climate.cooler','temperature') == 80 -%}
+            {"val":6}
+            {%-elif state_attr('climate.cooler','temperature') == 81 -%}
+            {"val":7}
+            {%-elif state_attr('climate.cooler','temperature') == 82 -%}
+            {"val":8}
+            {%-elif state_attr('climate.cooler','temperature') == 83 -%}
+            {"val":9}
+            {%-elif state_attr('climate.cooler','temperature') == 84 -%}
+            {"val":10}
+            {%-elif state_attr('climate.cooler','temperature') == 85 -%}
+            {"val":11}
+            {%-elif state_attr('climate.cooler','temperature') == 88 -%}
+            {"val":12}
+            {%-elif state_attr('climate.cooler','temperature') == 90 -%}
+            {"val":13}
+            {% endif %}
+        event:
+          "changed":
+            - service: climate.set_temperature
+              data:
+                temperature: "{{ text }}"
+              target:
+                entity_id: climate.cooler
+           
+# page 2 lights 
+           
+           
+           
+      - obj: "p2b5" # Light brightness
+        properties:
+          "val": "{{ state_attr('light.living_room_light', 'brightness') if state_attr('light.living_room_light', 'brightness') != None else 0 }}"
+        event:
+          "changed":
+            - service: light.turn_on
+              data:
+                entity_id: light.living_room_light
+                brightness:  "{{ val }}"
+          "up":
+            - service: light.turn_on
+              data:
+                entity_id: light.living_room_light
+                brightness:  "{{ val }}"
+                
+      - obj: "p2b1" # kitchen
+        properties:
+          "val": '{{ 1 if is_state("light.kitchen_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.kitchen_light"              
+
+      - obj: "p2b2" # dine
+        properties:
+          "val": '{{ 1 if is_state("light.dining_room_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.dining_room_light"
+               
+      - obj: "p2b3" # office
+        properties:
+          "val": '{{ 1 if is_state("light.office_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.office_light"
+               
+               
+      - obj: "p2b4" # hall
+        properties:
+          "val": '{{ 1 if is_state("switch.hall_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.hall_light"               
+     
+      - obj: "p2b7" # patio
+        properties:
+          "val": '{{ 1 if is_state("switch.patio_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.patio_light"
+               
+      - obj: "p2b8" # door
+        properties:
+          "val": '{{ 1 if is_state("light.porch_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.porch_light"
+               
+              #front of house
+      - obj: "p2b9" # all
+        properties:
+          "val": '{{ 1 if is_state("light.front_of_house", "on") else 0 }}'
+          "text": '{{ "\uF40B # Front of house ON" if is_state("light.front_of_house", "on") else "\uF40B # Front of house OFF" | e }}'
+          "text_color": '{{ "yellow" if is_state("light.front_of_house", "on") else "white" }}'
+        event:
+          "long":
+            - service: homeassistant.toggle
+              entity_id: "light.front_of_house" 
+               
+               
+# Page 4 media players 
+      
+      
+      - obj: "p4b1" # Pause
+        event:
+          "down":
+            - service: media_player.media_play_pause
+              data: {}
+              target:
+                entity_id: media_player.spotify_smarthome1
+      - obj: "p4b2" # Play/Pause icon
+        properties:
+          "text": '{{ "\uE3E4" if is_state("media_player.spotify_smarthome1", "playing") else "\uE40A" }}'
+      - obj: "p4b3" # Play/Pause text
+        properties:
+          "text": '{{ "Pause" if is_state("media_player.spotify_smarthome1", "playing") else "Play" }}'
+
+    #   - obj: "p4b4" #  Repeat
+    #     event:
+    #       "down":
+    #         - service: media_player.repeat_set
+    #           data:
+    #             repeat: "{{ 'off' if is_state_attr('media_player.spotify_smarthome1', 'repeat', 'all') else 'all' }}"
+    #           target:
+    #             entity_id: media_player.spotify_smarthome1
+    #   - obj: "p4b5" # Repeat icon
+    #     properties:
+    #       "text": '{{ "\uE456" if is_state_attr("media_player.spotify_smarthome1", "repeat", "all") else "\uE457" }}'
+
+    #   - obj: "p4b7" #  Shuffle
+    #     event:
+    #       "down":
+    #         - service: media_player.shuffle_set
+    #           data:
+    #             shuffle: "{{ not is_state_attr('media_player.spotify_smarthome1', 'shuffle', true) }}"
+    #           target:
+    #             entity_id: media_player.spotify_smarthome1
+    #   - obj: "p4b8" # Shuffle icon
+    #     properties:
+    #       "text": '{{ "\uE49D" if is_state_attr("media_player.spotify_smarthome1", "shuffle", true) else "\uE49E" }}'
+
+      - obj: "p4b10" # Previous
+        event:
+          "down":
+            - service: media_player.media_previous_track
+              data: {}
+              target:
+                entity_id: media_player.spotify_smarthome1
+
+      - obj: "p4b13" # Next
+        event:
+          "down":
+            - service: media_player.media_next_track
+              data: {}
+              target:
+                entity_id: media_player.spotify_smarthome1
+     
+      - obj: "p4b19" # volume slider living room
+        properties:
+          "val": >
+            {% if (state_attr('media_player.kitchen_nest','volume_level') != none and states('media_player.kitchen_nest') not in ['unavailable', 'unknown']) %}
+            {{ state_attr('media_player.kitchen_nest','volume_level') * 100 | int(default=100) }}
+            {%-endif %}
+          "click": "{{ 'false' if states('media_player.kitchen_nest') in ['unavailable', 'unknown'] else 'true' }}"          
+          
+        event:
+          "changed":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.kitchen_nest
+                volume_level: "{{ val | int / 100 }}"
+          "up":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.kitchen_nest
+                volume_level: "{{ val | int / 100 }}"
+
+      - obj: "p4b22" # volume slider living room
+        properties:
+          "val": >
+            {% if (state_attr('media_player.nestmini7847','volume_level') != none and states('media_player.nestmini7847') not in ['unavailable', 'unknown']) %}
+            {{ state_attr('media_player.nestmini7847','volume_level') * 100 | int(default=100) }}
+            {%-endif %}
+          "click": "{{ 'false' if states('media_player.nestmini7847') in ['unavailable', 'unknown'] else 'true' }}"          
+          
+        event:
+          "changed":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.nestmini7847
+                volume_level: "{{ val | int / 100 }}"
+          "up":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.nestmini7847
+                volume_level: "{{ val | int / 100 }}"
+                
+      - obj: "p4b16" # start spotify
+        event:
+          "down":
+            - service: script.spotify_start_playback
+# playlist choose
+      - obj: "p4b40" # dropdown
+        properties:
+          "options": >
+            {% if (state_attr('input_select.playlist','options') != none and states('input_select.playlist') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.playlist','options')%}{{item+"\n"|e}}{%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+          "val": >
+            {% if (state_attr('input_select.playlist','options') != none and states('input_select.playlist') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.playlist','options')%}
+            {{loop.index -1 if item == states('input_select.playlist') }}
+            {%-endfor%}{% endif %}
+
+        event:
+          "changed":
+            - service: input_select.select_option
+              data:
+                option: '{{ text }}'
+              target:
+                entity_id: input_select.playlist                
+                          
+                
+# page3 weather
+
+      - obj: "p3b3" # rain
+        properties:
+          "text": '{{ states("sensor.raindaily") }} Inch'
+
+      - obj: "p3b6" # rain hourly 
+        properties:
+          "text": '{{ states("sensor.rainhourly") }} PrHr'
+          
+      - obj: "p3b9" # wind
+        properties:
+          "text": '{{ states("sensor.windspeed") }} Mph'  
+          
+      - obj: "p3b13" # out door
+        properties:
+          "text": '{{ states("sensor.station_temperature") | round(0) }}°F'          
+      
+      - obj: "p3b16" # out door %
+        properties:
+          "text": '{{ states("sensor.humidityoutdoor") | round(0) }}%'     
+
+      - obj: "p3b19" # out door %
+        properties:
+          "text": '{{ states("sensor.solarradiation") | round(0) }}W/m^2'
+          
+      - obj: "p3b22"  #forcast today
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[0]['condition'] }}"
+           
+      - obj: "p3b25"  #forcast +1
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[1]['condition'] }}"
+           
+      - obj: "p3b27"  #forcast +2
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[2]['condition'] }}"  
+           
+      - obj: "p3b29"  #forcast today
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[0]['temperature'] }}°h"
+           
+      - obj: "p3b30"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[1]['temperature'] }}°h"
+           
+      - obj: "p3b31"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[2]['temperature'] }}°h"           
+           
+      - obj: "p3b33"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[0]['templow'] }}°L"
+           
+      - obj: "p3b34"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[1]['templow'] }}°L"
+           
+      - obj: "p3b35"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[2]['templow'] }}°L"           
+           
+           
+          
+#       - obj: "p5b2"  #pellet heat slider
+#         properties:
+#           "val": "{{ state_attr('climate.heat','temperature')  | int if not (is_state('climate.heat','unavailable')) }}"
+#           "min": "{{ state_attr('climate.heat','min_temp')  | int if not (is_state('climate.heat','unavailable')) }}"
+#           "max": "{{ state_attr('climate.heat','max_temp')  | int if not (is_state('climate.heat','unavailable')) }}"
+#           "value_str20": "{{ state_attr('climate.heat','temperature')  | int if not (is_state('climate.heat','unavailable')) }}"
+
+#         event:
+#           "changed":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.heat
+#               data:
+#                 temperature: "{{ val | int   }}"
+#           "up":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.heat
+#               data:
+#                 temperature: "{{ val | int   }}" 
+                
+#       - obj: "p5b25"  # label target temp
+#         properties:
+#           "text": "{{ state_attr('climate.heat','temperature') if not (is_state('climate.heat','unavailable')) }}°F"             
+
+#       - obj: "p5b3" # cooler temp slider
+#         properties:
+#           "val": "{{ state_attr('climate.cooler','temperature')  | int if not (is_state('climate.cooler','unavailable')) }}"
+#           "min": "{{ state_attr('climate.cooler','min_temp')  | int if not (is_state('climate.cooler','unavailable')) }}"
+#           "max": "{{ state_attr('climate.cooler','max_temp')  | int if not (is_state('climate.cooler','unavailable')) }}"
+#           "value_str20": "{{ state_attr('climate.cooler','temperature')  | int if not (is_state('climate.cooler','unavailable')) }}"
+
+#         event:
+#           "changed":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.cooler
+#               data:
+#                 temperature: "{{ val | int   }}"
+#           "up":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.cooler
+#               data:
+#                 temperature: "{{ val | int   }}" 
+                
+                
+                
+#       - obj: "p5b17" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p5b18" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'hvac_action') }}"
+             
+#       - obj: "p5b16"
+#         properties:
+#           "text": '{{ "\uE238" if is_state_attr("climate.heat", "hvac_action", "heating") else "\uE156" }}'
+
+#       - obj: "p5b16"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'          
+      
+#       - obj: "p1b18"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'                 
+# #cooler
+#       - obj: "p5b21" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p5b22" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'hvac_action') }}"
+             
+#       - obj: "p1b20"
+#         properties:
+#           "text": '{{ "\uE01B" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "\uE717" }}'
+
+#       - obj: "p5b22"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'          
+      
+#       - obj: "p5b20"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'                  
+
+# weather 
+      - obj: "p5b14" # Icon
+        properties:
+          "src": "{{ 'L:/w-128-' + states('weather.barb_s_place') + '.png' if not is_state('weather.barb_s_place','unavailable') }}"
+
+      - obj: "p5b15" # Current date (adjust format to your needs)
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set day = (states.weather.barb_s_place.last_changed).strftime('%w') %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{- days[ day | int -1 ] }} {{ (states.weather.barb_s_place.last_changed).strftime('%m. %d. ') }}
+            {% endif -%}
+
+      - obj: "p5b16" # Current temp (you can use your own outdoor temp sensor if you have one)
+        properties:
+          "text": "{{ states('sensor.station_temperature') if not is_state('sensor.station_temperature','unavailable') else '--' }}°F"
+          # or "{{ states('sensor.your_own_temp_sensor') if not is_state('sensor.your_own_temp_sensor','unavailable') else '--' }}°F"  "{{ state_attr('weather.barb_s_place','temperature') |string + '°F' if not is_state('weather.barb_s_place','unavailable') }}"  
+
+      - obj: "p5b17" # Current weather condition
+        properties:
+          "text": >
+             {% if is_state('weather.barb_s_place','clear-night') -%}
+             Clear night
+             {% elif is_state('weather.barb_s_place','cloudy') -%}
+             Cloudy
+             {% elif is_state('weather.barb_s_place','fog') -%}
+             Fog
+             {% elif is_state('weather.barb_s_place','hail') -%}
+             Hail
+             {% elif is_state('weather.barb_s_place','lightning') -%}
+             Lightning
+             {% elif is_state('weather.barb_s_place','lightning-rainy') -%}
+             Thunderstorms
+             {% elif is_state('weather.barb_s_place','partlycloudy') -%}
+             Partly cloudy
+             {% elif is_state('weather.barb_s_place','pouring') -%}
+             Pouring rain
+             {% elif is_state('weather.barb_s_place','rainy') -%}
+             Rainy
+             {% elif is_state('weather.barb_s_place','snowy') -%}
+             Snowy
+             {% elif is_state('weather.barb_s_place','snowy-rainy') -%}
+             Snowy-rainy
+             {% elif is_state('weather.barb_s_place','sunny') -%}
+             Sunny
+             {% elif is_state('weather.barb_s_place','windy') -%}
+             Windy
+             {% elif is_state('weather.barb_s_place','windy-variant') -%}
+             Windy
+             {% elif is_state('weather.barb_s_place','exceptional') -%}
+             Exceptional
+             {% elif is_state('weather.barb_s_place','unavailable') -%}
+             (not available)
+             {% else -%}
+             {{ states('weather.barb_s_place') }}
+             {% endif -%}
+
+      - obj: "p5b10"  # tab dots - MAKE SURE YOU UPDATE THIS ONE!!
+        event:
+          "changed":
+            - service: openhasp.command
+              target:
+                entity_id: openhasp.desk
+              data:
+                keyword: p5b19.text
+                parameters: >
+                  {% if val == 0 %}
+                  {{ "#000000 \u2022# #909090 \u2022#" | e }}
+                  {%-elif val == 1 %}
+                  {{ "#909090 \u2022# #000000 \u2022#" | e }}
+                  {% endif %}
+
+      - obj: "p5b21" # Forecast time +1h
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set update = states('sensor.date') %}
+            {%- set midnight = now().replace(hour=0, minute=0, second=0, microsecond=0).timestamp() %}
+            {%- set event = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[1]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set delta = ((event - midnight) // 86400) | int %}
+            {%- if delta == 0 %}
+            Today
+            {%- elif delta == 1 %}
+            Tomorrow
+            {%- endif %}
+            {{- event | timestamp_custom(" %-I %p") }}
+            {%- endif %}
+
+      - obj: "p5b22" # Forecast temp +1h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[1]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b23" # Forecast condition +1h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[1]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b31" # Forecast time +2h (using Dawn/Morn etc instead of Today/Tomorrow)
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set hour = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[3]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) | timestamp_custom("%-H") | int %}
+            {%- if 4 <= hour < 6 %}
+            Dawning
+            {%- elif 6 <= hour < 9 %}
+            Morning
+            {%- elif 9 <= hour < 12 %}
+            Forenoon
+            {%- elif 12 <= hour < 18 %}
+            Afternoon
+            {%- elif 18 <= hour < 23 %}
+            Evening
+            {%- elif 23 <= hour or hour < 4 %}
+            Night
+            {%- endif %}
+            {{- " " + hour |string + " o'clock" }}
+            {%- endif %}
+
+      - obj: "p5b32" # Forecast temp +2h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[3]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b33" # Forecast condition +2h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[3]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b41" # Forecast time +4h
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set update = states('sensor.date') %}
+            {%- set midnight = now().replace(hour=0, minute=0, second=0, microsecond=0).timestamp() %}
+            {%- set event = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[6]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set delta = ((event - midnight) // 86400) | int %}
+            {%- if delta == 0 %}
+            Today
+            {%- elif delta == 1 %}
+            Tomorrow
+            {%- endif %}
+            {{- event | timestamp_custom(" %-I %p") }}
+            {%- endif %}
+
+      - obj: "p5b42" # Forecast temp +4h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[6]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b43" # Forecast condition +4h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[6]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b51" # Forecast time +8h
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set update = states('sensor.date') %}
+            {%- set midnight = now().replace(hour=0, minute=0, second=0, microsecond=0).timestamp() %}
+            {%- set event = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[12]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set delta = ((event - midnight) // 86400) | int %}
+            {%- if delta == 0 %}
+            Today
+            {%- elif delta == 1 %}
+            Tomorrow
+            {%- endif %}
+            {{- event | timestamp_custom(" %-I %p") }}
+            {%- endif %}
+
+      - obj: "p5b52" # Forecast temp +8h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[12]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b53" # Forecast condition +8h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[12]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b61" # Forecast date +1d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[0]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b62" # Forecast temp min +1d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[0]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b63" # Forecast temp max +1d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[0]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b64" # Forecast condition +1d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[0]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b71" # Forecast date +2d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_placee','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[1]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b72" # Forecast temp min +2d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[1]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b73" # Forecast temp max +2d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[1]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b74" # Forecast condition +2d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[1]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b81" # Forecast date +3d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[2]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b82" # Forecast temp min +3d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[2]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b83" # Forecast temp max +3d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[2]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b84" # Forecast condition +3d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[2]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b91" # Forecast date +4d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[3]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b92" # Forecast temp min +4d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[3]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b93" # Forecast temp max +4d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[3]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b94" # Forecast condition +4d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[3]['condition'] }}.png
+            {%- endif %}
+
+
+      - obj: "p5b116" # out door %
+        properties:
+          "text": '{{ states("sensor.humidityoutdoor") | round(0) }}%'     
+       
+      - obj: "p5b119" # out door %
+        properties:
+          "text": '{{ states("sensor.solarradiation") | round(0) }}W/m^2'
+          
+      - obj: "p5b203" # rain
+        properties:
+          "text": '{{ states("sensor.raindaily") }} Inch'
+
+      - obj: "p5b206" # rain hourly 
+        properties:
+          "text": '{{ states("sensor.rainhourly") }} PrHr'  
+          
+          
+          
+######### Desk1 #########################################################
+##########################################################################################
+
+
+desk1:
+
+  objects:
+# Page 1: living room quick look
+ 
+      - obj: "p1b3" # indoor Temperature
+        properties:
+          "text": '{{ states("sensor.livingroom_temperature_am2301_temperature") | round(0) }}°F'
+
+      - obj: "p1b6" # out door
+        properties:
+          "text": '{{ states("sensor.patioth_am2301_temperature") | round(0) }}°F'
+      
+#light scene drop down
+      - obj: "p1b7" # dropdown
+        properties:
+          "options": >
+            {% if (state_attr('input_select.light_scene_select','options') != none and states('input_select.light_scene_select') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.light_scene_select','options')%}{{item+"\n"|e}}{%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+          "val": >
+            {% if (state_attr('input_select.light_scene_select','options') != none and states('input_select.light_scene_select') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.light_scene_select','options')%}
+            {{loop.index -1 if item == states('input_select.light_scene_select') }}
+            {%-endfor%}{% endif %}
+        event:
+          "changed":
+            - service: input_select.select_option
+              data:
+                option: '{{ text }}'
+              target:
+                entity_id: input_select.light_scene_select
+                
+# Living room light bright drop down
+      - obj: "p1b8" # dropdown
+        properties:
+          "options": >
+            {% if (state_attr('input_select.living_room_light_bright','options') != none and states('input_select.living_room_light_bright') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.living_room_light_bright','options')%}{{item+"\n"|e}}{%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+          "val": >
+            {% if (state_attr('input_select.living_room_light_bright','options') != none and states('input_select.living_room_light_bright') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.living_room_light_bright','options')%}
+            {{loop.index -1 if item == states('input_select.living_room_light_bright') }}
+            {%-endfor%}{% endif %}
+        event:
+          "changed":
+            - service: input_select.select_option
+              data:
+                option: '{{ text }}'
+              target:
+                entity_id: input_select.living_room_light_bright                
+      
+      # - obj: "p1b7" # TV time living 
+      #   event:
+      #     "down":
+      #       - service: scene.turn_on
+      #         target:
+      #           entity_id: scene.tv_time            
+            
+
+      # - obj: "p1b10" # all bright
+      #   event:
+      #     "down":
+      #       - service: scene.turn_on
+      #         target:
+      #           entity_id: scene.all_bright
+
+      # - obj: "p1b13" # Light brightness
+      #   properties:
+      #     "val": "{{ state_attr('light.living_room_light', 'brightness') if state_attr('light.living_room_light', 'brightness') != None else 0 }}"
+      #     "value_str20": "{{ state_attr('light.living_room_light', 'brightness') if state_attr('light.living_room_light', 'brightness') != None else 0 }}"
+      #   event:
+      #     "changed":
+      #       - service: light.turn_on
+      #         data:
+      #           entity_id: light.living_room_light
+      #           brightness:  "{{ val }}"
+      #     "up":
+      #       - service: light.turn_on
+      #         data:
+      #           entity_id: light.living_room_light
+      #           brightness:  "{{ val }}"
+
+# #pellet stove 
+#       - obj: "p1b17" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p1b18" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'hvac_action') }}"
+             
+#       - obj: "p1b16"
+#         properties:
+#           "text": '{{ "\uE238" if is_state_attr("climate.heat", "hvac_action", "heating") else "\uE156" }}'
+
+#       - obj: "p1b16"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'          
+      
+#       - obj: "p1b18"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'                 
+# #cooler
+#       - obj: "p1b21" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p1b22" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'hvac_action') }}"
+             
+#       - obj: "p1b20"
+#         properties:
+#           "text": '{{ "\uE01B" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "\uE717" }}'
+
+#       - obj: "p1b22"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'          
+      
+#       - obj: "p1b20"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'    
+
+
+#       - obj: "p1b23" # pellet boost switch
+#         properties:
+#           "val": '{{ 1 if is_state("input_boolean.heat_boost_pellet", "on") else 0 }}'
+          
+#         event:
+#             "down":
+#             - service: homeassistant.toggle
+#               entity_id: "input_boolean.heat_boost_pellet"
+               
+      # - obj: "p1b24" # pellet boost RED
+      #   properties:
+      #     "text_color": '{{ "Red" if is_state("input_boolean.heat_boost_pellet", "on") else "white" }}'
+
+#party mode              
+      - obj: "p1b25" # party switch
+        properties:
+          "val": '{{ 1 if is_state("input_boolean.party_climate", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "input_boolean.party_climate"
+               
+      - obj: "p1b26" # party mode blue
+        properties:
+          "text_color": '{{ "Aqua" if is_state("input_boolean.party_climate", "on") else "white" }}'
+          
+      - obj: "p2b11" # TV plug
+        properties:
+          "val": '{{ 1 if is_state("switch.plug4", "on") else 0 }}'
+          "text": '{{ "\uE502 # ON" if is_state("switch.plug4", "on") else "\uE502 # OFF" | e }}'
+          "text_color": '{{ "White" if is_state("switch.plug4", "on") else "Red" }}'
+        event:
+          "long":
+            - service: homeassistant.toggle
+              entity_id: "switch.plug4" 
+           
+
+      # - obj: "p1b42" # PELLET progressbar
+      #   properties:
+      #     "val": '{{ states("sensor.pellet_level_in_percent") }} ' 
+# Pellet level
+      - obj: "p1b19"
+        properties:
+          "h": '{{ 100.00 -   (states("sensor.pellet_level_mean") * 1 ) | int }}'
+
+#pellet climate roller
+      - obj: "p1b27" # roller
+        properties:
+
+          "jsonl": >
+            {% if state_attr('climate.heat','temperature') == 60 -%}
+            {"val":0}
+            {%-elif state_attr('climate.heat','temperature') == 65 -%}
+            {"val":1}
+            {%-elif state_attr('climate.heat','temperature') == 67 -%}
+            {"val":2}
+            {%-elif state_attr('climate.heat','temperature') == 68 -%}
+            {"val":3}
+            {%-elif state_attr('climate.heat','temperature') == 69 -%}
+            {"val":4}
+            {%-elif state_attr('climate.heat','temperature') == 70 -%}
+            {"val":5}
+            {%-elif state_attr('climate.heat','temperature') == 71 -%}
+            {"val":6}
+            {%-elif state_attr('climate.heat','temperature') == 72 -%}
+            {"val":7}
+            {%-elif state_attr('climate.heat','temperature') == 73 -%}
+            {"val":8}
+            {%-elif state_attr('climate.heat','temperature') == 74 -%}
+            {"val":9}
+            {%-elif state_attr('climate.heat','temperature') == 75 -%}
+            {"val":10}
+            {%-elif state_attr('climate.heat','temperature') == 76 -%}
+            {"val":11}
+            {%-elif state_attr('climate.heat','temperature') == 77 -%}
+            {"val":12}
+            {%-elif state_attr('climate.heat','temperature') == 78 -%}
+            {"val":13}
+            {% endif %}
+        event:
+          "changed":
+            - service: climate.set_temperature
+              data:
+                temperature: "{{ text }}"
+              target:
+                entity_id: climate.heat
+
+           
+# page 2 lights 
+           
+           
+           
+      - obj: "p2b5" # Light brightness
+        properties:
+          "val": "{{ state_attr('light.living_room_light', 'brightness') if state_attr('light.living_room_light', 'brightness') != None else 0 }}"
+        event:
+          "changed":
+            - service: light.turn_on
+              data:
+                entity_id: light.living_room_light
+                brightness:  "{{ val }}"
+          "up":
+            - service: light.turn_on
+              data:
+                entity_id: light.living_room_light
+                brightness:  "{{ val }}"
+                
+      - obj: "p2b1" # kitchen
+        properties:
+          "val": '{{ 1 if is_state("light.kitchen_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.kitchen_light"              
+
+      - obj: "p2b2" # dine
+        properties:
+          "val": '{{ 1 if is_state("light.dining_room_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.dining_room_light"
+               
+      - obj: "p2b3" # office
+        properties:
+          "val": '{{ 1 if is_state("light.office_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.office_light"
+               
+               
+      - obj: "p2b4" # hall
+        properties:
+          "val": '{{ 1 if is_state("switch.hall_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.hall_light"               
+     
+      - obj: "p2b7" # patio
+        properties:
+          "val": '{{ 1 if is_state("switch.patio_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "switch.patio_light"
+               
+      - obj: "p2b8" # door
+        properties:
+          "val": '{{ 1 if is_state("light.porch_light", "on") else 0 }}'
+          
+        event:
+            "down":
+            - service: homeassistant.toggle
+              entity_id: "light.porch_light"
+               
+              #front of house
+      - obj: "p2b9" # all
+        properties:
+          "val": '{{ 1 if is_state("light.front_of_house", "on") else 0 }}'
+          "text": '{{ "\uF40B # Front of house ON" if is_state("light.front_of_house", "on") else "\uF40B # Front of house OFF" | e }}'
+          "text_color": '{{ "yellow" if is_state("light.front_of_house", "on") else "white" }}'
+        event:
+          "long":
+            - service: homeassistant.toggle
+              entity_id: "light.front_of_house" 
+               
+               
+# Page 4 media players 
+      
+      
+      - obj: "p4b1" # Pause
+        event:
+          "down":
+            - service: media_player.media_play_pause
+              data: {}
+              target:
+                entity_id: media_player.spotify_smarthome1
+      - obj: "p4b2" # Play/Pause icon
+        properties:
+          "text": '{{ "\uE3E4" if is_state("media_player.spotify_smarthome1", "playing") else "\uE40A" }}'
+      - obj: "p4b3" # Play/Pause text
+        properties:
+          "text": '{{ "Pause" if is_state("media_player.spotify_smarthome1", "playing") else "Play" }}'
+
+    #   - obj: "p4b4" #  Repeat
+    #     event:
+    #       "down":
+    #         - service: media_player.repeat_set
+    #           data:
+    #             repeat: "{{ 'off' if is_state_attr('media_player.spotify_smarthome1', 'repeat', 'all') else 'all' }}"
+    #           target:
+    #             entity_id: media_player.spotify_smarthome1
+    #   - obj: "p4b5" # Repeat icon
+    #     properties:
+    #       "text": '{{ "\uE456" if is_state_attr("media_player.spotify_smarthome1", "repeat", "all") else "\uE457" }}'
+
+    #   - obj: "p4b7" #  Shuffle
+    #     event:
+    #       "down":
+    #         - service: media_player.shuffle_set
+    #           data:
+    #             shuffle: "{{ not is_state_attr('media_player.spotify_smarthome1', 'shuffle', true) }}"
+    #           target:
+    #             entity_id: media_player.spotify_smarthome1
+    #   - obj: "p4b8" # Shuffle icon
+    #     properties:
+    #       "text": '{{ "\uE49D" if is_state_attr("media_player.spotify_smarthome1", "shuffle", true) else "\uE49E" }}'
+
+      - obj: "p4b10" # Previous
+        event:
+          "down":
+            - service: media_player.media_previous_track
+              data: {}
+              target:
+                entity_id: media_player.spotify_smarthome1
+
+      - obj: "p4b13" # Next
+        event:
+          "down":
+            - service: media_player.media_next_track
+              data: {}
+              target:
+                entity_id: media_player.spotify_smarthome1
+     
+      - obj: "p4b19" # volume slider living room
+        properties:
+          "val": >
+            {% if (state_attr('media_player.kitchen_nest','volume_level') != none and states('media_player.kitchen_nest') not in ['unavailable', 'unknown']) %}
+            {{ state_attr('media_player.kitchen_nest','volume_level') * 100 | int(default=100) }}
+            {%-endif %}
+          "click": "{{ 'false' if states('media_player.kitchen_nest') in ['unavailable', 'unknown'] else 'true' }}"          
+          
+        event:
+          "changed":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.kitchen_nest
+                volume_level: "{{ val | int / 100 }}"
+          "up":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.kitchen_nest
+                volume_level: "{{ val | int / 100 }}"
+
+      - obj: "p4b22" # volume slider living room
+        properties:
+          "val": >
+            {% if (state_attr('media_player.nestmini7847','volume_level') != none and states('media_player.nestmini7847') not in ['unavailable', 'unknown']) %}
+            {{ state_attr('media_player.nestmini7847','volume_level') * 100 | int(default=100) }}
+            {%-endif %}
+          "click": "{{ 'false' if states('media_player.nestmini7847') in ['unavailable', 'unknown'] else 'true' }}"          
+          
+        event:
+          "changed":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.nestmini7847
+                volume_level: "{{ val | int / 100 }}"
+          "up":
+            - service: media_player.volume_set
+              data:
+                entity_id: media_player.nestmini7847
+                volume_level: "{{ val | int / 100 }}"
+                
+      - obj: "p4b16" # start spotify
+        event:
+          "down":
+            - service: script.spotify_start_playback
+# playlist choose
+      - obj: "p4b40" # dropdown
+        properties:
+          "options": >
+            {% if (state_attr('input_select.playlist','options') != none and states('input_select.playlist') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.playlist','options')%}{{item+"\n"|e}}{%-if not loop.last%}{%-endif%}{%-endfor%}{% endif %}
+          "val": >
+            {% if (state_attr('input_select.playlist','options') != none and states('input_select.playlist') not in ['unavailable', 'unknown']) %}{%for item in state_attr('input_select.playlist','options')%}
+            {{loop.index -1 if item == states('input_select.playlist') }}
+            {%-endfor%}{% endif %}
+
+        event:
+          "changed":
+            - service: input_select.select_option
+              data:
+                option: '{{ text }}'
+              target:
+                entity_id: input_select.playlist                
+                          
+                
+# page3 weather
+
+      - obj: "p3b3" # rain
+        properties:
+          "text": '{{ states("sensor.raindaily") }} Inch'
+
+      - obj: "p3b6" # rain hourly 
+        properties:
+          "text": '{{ states("sensor.rainhourly") }} PrHr'
+          
+      - obj: "p3b9" # wind
+        properties:
+          "text": '{{ states("sensor.windspeed") }} Mph'  
+          
+      - obj: "p3b13" # out door
+        properties:
+          "text": '{{ states("sensor.station_temperature") | round(0) }}°F'          
+      
+      - obj: "p3b16" # out door %
+        properties:
+          "text": '{{ states("sensor.humidityoutdoor") | round(0) }}%'     
+
+      - obj: "p3b19" # out door %
+        properties:
+          "text": '{{ states("sensor.solarradiation") | round(0) }}W/m^2'
+          
+      - obj: "p3b22"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[0]['condition'] }}"
+           
+      - obj: "p3b25"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[1]['condition'] }}"
+           
+      - obj: "p3b27"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[2]['condition'] }}"  
+           
+      - obj: "p3b29"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[0]['temperature'] }}°h"
+           
+      - obj: "p3b30"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[1]['temperature'] }}°h"
+           
+      - obj: "p3b31"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[2]['temperature'] }}°h"           
+           
+      - obj: "p3b33"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[0]['templow'] }}°L"
+           
+      - obj: "p3b34"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[1]['templow'] }}°L"
+           
+      - obj: "p3b35"  #forcast
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place', 'forecast')[2]['templow'] }}°L"           
+           
+           
+          
+#       - obj: "p5b2"  #pellet heat slider
+#         properties:
+#           "val": "{{ state_attr('climate.heat','temperature')  | int if not (is_state('climate.heat','unavailable')) }}"
+#           "min": "{{ state_attr('climate.heat','min_temp')  | int if not (is_state('climate.heat','unavailable')) }}"
+#           "max": "{{ state_attr('climate.heat','max_temp')  | int if not (is_state('climate.heat','unavailable')) }}"
+#           "value_str20": "{{ state_attr('climate.heat','temperature')  | int if not (is_state('climate.heat','unavailable')) }}"
+
+#         event:
+#           "changed":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.heat
+#               data:
+#                 temperature: "{{ val | int   }}"
+#           "up":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.heat
+#               data:
+#                 temperature: "{{ val | int   }}" 
+                
+#       - obj: "p5b25"  # label target temp
+#         properties:
+#           "text": "{{ state_attr('climate.heat','temperature') if not (is_state('climate.heat','unavailable')) }}°F"             
+
+#       - obj: "p5b3" # cooler temp slider
+#         properties:
+#           "val": "{{ state_attr('climate.cooler','temperature')  | int if not (is_state('climate.cooler','unavailable')) }}"
+#           "min": "{{ state_attr('climate.cooler','min_temp')  | int if not (is_state('climate.cooler','unavailable')) }}"
+#           "max": "{{ state_attr('climate.cooler','max_temp')  | int if not (is_state('climate.cooler','unavailable')) }}"
+#           "value_str20": "{{ state_attr('climate.cooler','temperature')  | int if not (is_state('climate.cooler','unavailable')) }}"
+
+#         event:
+#           "changed":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.cooler
+#               data:
+#                 temperature: "{{ val | int   }}"
+#           "up":
+#             - service: climate.set_temperature
+#               target:
+#                 entity_id: climate.cooler
+#               data:
+#                 temperature: "{{ val | int   }}" 
+                
+                
+                
+#       - obj: "p5b17" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p5b18" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.heat', 'hvac_action') }}"
+             
+#       - obj: "p5b16"
+#         properties:
+#           "text": '{{ "\uE238" if is_state_attr("climate.heat", "hvac_action", "heating") else "\uE156" }}'
+
+#       - obj: "p5b16"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'          
+      
+#       - obj: "p1b18"
+#         properties:
+#           "text_color": '{{ "Red" if is_state_attr("climate.heat", "hvac_action", "heating") else "Blue" }}'                 
+# #cooler
+#       - obj: "p5b21" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'temperature') | round(0) }}°F"
+             
+#       - obj: "p5b22" # set Temperature
+#         properties:
+#             "text": "{{ state_attr('climate.cooler', 'hvac_action') }}"
+             
+#       - obj: "p1b20"
+#         properties:
+#           "text": '{{ "\uE01B" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "\uE717" }}'
+
+#       - obj: "p5b22"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'          
+      
+#       - obj: "p5b20"
+#         properties:
+#           "text_color": '{{ "Blue" if is_state_attr("climate.cooler", "hvac_action", "cooling") else "Red" }}'                  
+
+
+# weather 
+      - obj: "p5b14" # Icon
+        properties:
+          "src": "{{ 'L:/w-128-' + states('weather.barb_s_place') + '.png' if not is_state('weather.barb_s_place','unavailable') }}"
+
+      - obj: "p5b15" # Current date (adjust format to your needs)
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set day = (states.weather.barb_s_place.last_changed).strftime('%w') %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{- days[ day | int -1 ] }} {{ (states.weather.barb_s_place.last_changed).strftime('%m. %d. ') }}
+            {% endif -%}
+
+      - obj: "p5b16" # Current temp (you can use your own outdoor temp sensor if you have one)
+        properties:
+          "text": "{{ states('sensor.station_temperature') if not is_state('sensor.station_temperature','unavailable') else '--' }}°F"
+          # or "{{ states('sensor.your_own_temp_sensor') if not is_state('sensor.your_own_temp_sensor','unavailable') else '--' }}°F"  "{{ state_attr('weather.barb_s_place','temperature') |string + '°F' if not is_state('weather.barb_s_place','unavailable') }}"  
+
+      - obj: "p5b17" # Current weather condition
+        properties:
+          "text": >
+             {% if is_state('weather.barb_s_place','clear-night') -%}
+             Clear night
+             {% elif is_state('weather.barb_s_place','cloudy') -%}
+             Cloudy
+             {% elif is_state('weather.barb_s_place','fog') -%}
+             Fog
+             {% elif is_state('weather.barb_s_place','hail') -%}
+             Hail
+             {% elif is_state('weather.barb_s_place','lightning') -%}
+             Lightning
+             {% elif is_state('weather.barb_s_place','lightning-rainy') -%}
+             Thunderstorms
+             {% elif is_state('weather.barb_s_place','partlycloudy') -%}
+             Partly cloudy
+             {% elif is_state('weather.barb_s_place','pouring') -%}
+             Pouring rain
+             {% elif is_state('weather.barb_s_place','rainy') -%}
+             Rainy
+             {% elif is_state('weather.barb_s_place','snowy') -%}
+             Snowy
+             {% elif is_state('weather.barb_s_place','snowy-rainy') -%}
+             Snowy-rainy
+             {% elif is_state('weather.barb_s_place','sunny') -%}
+             Sunny
+             {% elif is_state('weather.barb_s_place','windy') -%}
+             Windy
+             {% elif is_state('weather.barb_s_place','windy-variant') -%}
+             Windy
+             {% elif is_state('weather.barb_s_place','exceptional') -%}
+             Exceptional
+             {% elif is_state('weather.barb_s_place','unavailable') -%}
+             (not available)
+             {% else -%}
+             {{ states('weather.barb_s_place') }}
+             {% endif -%}
+
+      - obj: "p5b10"  # tab dots - MAKE SURE YOU UPDATE THIS ONE!!
+        event:
+          "changed":
+            - service: openhasp.command
+              target:
+                entity_id: openhasp.desk
+              data:
+                keyword: p5b19.text
+                parameters: >
+                  {% if val == 0 %}
+                  {{ "#000000 \u2022# #909090 \u2022#" | e }}
+                  {%-elif val == 1 %}
+                  {{ "#909090 \u2022# #000000 \u2022#" | e }}
+                  {% endif %}
+
+      - obj: "p5b21" # Forecast time +1h
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set update = states('sensor.date') %}
+            {%- set midnight = now().replace(hour=0, minute=0, second=0, microsecond=0).timestamp() %}
+            {%- set event = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[1]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set delta = ((event - midnight) // 86400) | int %}
+            {%- if delta == 0 %}
+            Today
+            {%- elif delta == 1 %}
+            Tomorrow
+            {%- endif %}
+            {{- event | timestamp_custom(" %-I %p") }}
+            {%- endif %}
+
+      - obj: "p5b22" # Forecast temp +1h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[1]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b23" # Forecast condition +1h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[1]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b31" # Forecast time +2h (using Dawn/Morn etc instead of Today/Tomorrow)
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set hour = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[3]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) | timestamp_custom("%-H") | int %}
+            {%- if 4 <= hour < 6 %}
+            Dawning
+            {%- elif 6 <= hour < 9 %}
+            Morning
+            {%- elif 9 <= hour < 12 %}
+            Forenoon
+            {%- elif 12 <= hour < 18 %}
+            Afternoon
+            {%- elif 18 <= hour < 23 %}
+            Evening
+            {%- elif 23 <= hour or hour < 4 %}
+            Night
+            {%- endif %}
+            {{- " " + hour |string + " o'clock" }}
+            {%- endif %}
+
+      - obj: "p5b32" # Forecast temp +2h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[3]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b33" # Forecast condition +2h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[3]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b41" # Forecast time +4h
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set update = states('sensor.date') %}
+            {%- set midnight = now().replace(hour=0, minute=0, second=0, microsecond=0).timestamp() %}
+            {%- set event = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[6]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set delta = ((event - midnight) // 86400) | int %}
+            {%- if delta == 0 %}
+            Today
+            {%- elif delta == 1 %}
+            Tomorrow
+            {%- endif %}
+            {{- event | timestamp_custom(" %-I %p") }}
+            {%- endif %}
+
+      - obj: "p5b42" # Forecast temp +4h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[6]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b43" # Forecast condition +4h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[6]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b51" # Forecast time +8h
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set update = states('sensor.date') %}
+            {%- set midnight = now().replace(hour=0, minute=0, second=0, microsecond=0).timestamp() %}
+            {%- set event = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[12]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set delta = ((event - midnight) // 86400) | int %}
+            {%- if delta == 0 %}
+            Today
+            {%- elif delta == 1 %}
+            Tomorrow
+            {%- endif %}
+            {{- event | timestamp_custom(" %-I %p") }}
+            {%- endif %}
+
+      - obj: "p5b52" # Forecast temp +8h
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[12]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b53" # Forecast condition +8h
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[12]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b61" # Forecast date +1d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[0]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b62" # Forecast temp min +1d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[0]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b63" # Forecast temp max +1d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[0]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b64" # Forecast condition +1d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[0]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b71" # Forecast date +2d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_placee','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[1]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b72" # Forecast temp min +2d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[1]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b73" # Forecast temp max +2d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[1]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b74" # Forecast condition +2d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[1]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b81" # Forecast date +3d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[2]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b82" # Forecast temp min +3d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[2]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b83" # Forecast temp max +3d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[2]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b84" # Forecast condition +3d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[2]['condition'] }}.png
+            {%- endif %}
+
+      - obj: "p5b91" # Forecast date +4d
+        properties:
+          "text": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            {%- set now = as_timestamp(strptime(state_attr('weather.barb_s_place','forecast')[3]['datetime'], '%Y-%m-%dT%H:%M:%S%z', default='2020-01-00T00:00:00+00:00')) %}
+            {%- set day = now | timestamp_custom("%w") %}
+            {%- set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+            {{ days[ day | int -1 ] }}{{- now | timestamp_custom(" %d") }}
+            {%- endif %}
+
+      - obj: "p5b92" # Forecast temp min +4d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[3]['templow'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b93" # Forecast temp max +4d
+        properties:
+          "text": "{{ state_attr('weather.barb_s_place','forecast')[3]['temperature'] if not is_state('weather.barb_s_place','unavailable') else '-' }}"
+
+      - obj: "p5b94" # Forecast condition +4d
+        properties:
+          "src": >
+            {%- if not is_state('weather.barb_s_place','unavailable') %}
+            L:/w-32-{{ state_attr('weather.barb_s_place','forecast')[3]['condition'] }}.png
+            {%- endif %}
+
+
+      - obj: "p5b116" # out door %
+        properties:
+          "text": '{{ states("sensor.humidityoutdoor") | round(0) }}%'     
+       
+      - obj: "p5b119" # out door %
+        properties:
+          "text": '{{ states("sensor.solarradiation") | round(0) }}W/m^2'
+          
+      - obj: "p5b203" # rain
+        properties:
+          "text": '{{ states("sensor.raindaily") }} Inch'
+
+      - obj: "p5b206" # rain hourly 
+        properties:
+          "text": '{{ states("sensor.rainhourly") }} PrHr' 
