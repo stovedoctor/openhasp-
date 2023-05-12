@@ -14,7 +14,7 @@
 {"page":0,"id":2,"obj":"obj","action":"p2","x":66,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#caffbf","value_str":"\uF40B"}
 {"page":0,"id":5,"obj":"obj","action":"p5","x":131,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#fdffb6","value_str":"\uE67F"}
 {"page":0,"id":4,"obj":"obj","action":"p4","x":196,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#ffc6ff","value_str":"\uE75A"}
-{"page":0,"id":3,"obj":"obj","action":"p3","x":261,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#ffc6ff","value_str":"\uE150"}
+{"page":0,"id":3,"obj":"obj","action":"p3","x":261,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#ffc6ff","value_str":"\uE5A9"}
 
 {"page":1,"id":1,"obj":"obj","x":5,"y":75,"w":145,"h":80,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
 
@@ -89,71 +89,9 @@
 "toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow","toggle":false}
 
 
-"Rain"
-{"page":3,"id":1,"obj":"obj","x":3,"y":75,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
-{"page":3,"id":2,"obj":"label","x":3,"y":75,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE58C"}
-{"page":3,"id":3,"obj":"label","x":6,"y":100,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
-{"page":3,"id":32,"obj":"label","x":35,"y":80,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rain Today"}
-
-
-{"page":3,"id":4,"obj":"obj","x":3,"y":155,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
-{"page":3,"id":5,"obj":"label","x":6,"y":155,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE596"}
-{"page":3,"id":6,"obj":"label","x":3,"y":180,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
-{"page":3,"id":62,"obj":"label","x":45,"y":160,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rate PrH"}
-
-{"page":3,"id":7,"obj":"obj","x":3,"y":235,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#FFE5CC"}
-{"page":3,"id":8,"obj":"label","x":3,"y":230,"w":40,"h":70,"text_color":"#000","text_font":32,"text":"\uE59D"}
-{"page":3,"id":9,"obj":"label","x":3,"y":260,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"XX.XX MPH","align":"center"}
-{"page":3,"id":92,"obj":"label","x":10,"y":235,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Wind","align":"center"}
-
-"Temp"
-{"page":3,"id":10,"obj":"obj","x":165,"y":75,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#ff9933"}
-{"page":3,"id":12,"obj":"label","x":165,"y":70,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE50F"}
-{"page":3,"id":13,"obj":"label","x":168,"y":100,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
-{"page":3,"id":132,"obj":"label","x":197,"y":80,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Out Door"}
-
-
-{"page":3,"id":14,"obj":"obj","x":165,"y":155,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
-{"page":3,"id":15,"obj":"label","x":168,"y":155,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE58E"}
-{"page":3,"id":16,"obj":"label","x":165,"y":180,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x%","align":"center"}
-{"page":3,"id":162,"obj":"label","x":205,"y":160,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Humidity"}
-
-
-{"page":3,"id":17,"obj":"obj","x":165,"y":235,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"gold"}
-{"page":3,"id":18,"obj":"label","x":165,"y":230,"w":40,"h":70,"text_color":"#000","text_font":32,"text":"\uE599"}
-{"page":3,"id":19,"obj":"label","x":165,"y":260,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"XX.XX KW","align":"center"}
-{"page":3,"id":192,"obj":"label","x":172,"y":235,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Solar","align":"center"}
-
-"forcast"
-{"page":3,"id":20,"obj":"obj","x":3,"y":315,"w":310,"h":165,"radius":10,"click":0,"border_side":0,"bg_color":"#FFE5CC"}
-
-{"page":3,"id":21,"obj":"label","x":115,"y":310,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Forcast"}
-
-{"page":3,"id":22,"obj":"label","x":15,"y":370,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Day1"}
-
-{"page":3,"id":24,"obj":"label","x":15,"y":345,"w":125,"h":45,"text_color":"#000","text_font":24,"text":"Today"}
-
-{"page":3,"id":25,"obj":"label","x":115,"y":370,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Day2"}
-
-{"page":3,"id":26,"obj":"label","x":100,"y":345,"w":125,"h":45,"text_color":"#000","text_font":24,"text":"Tomorrow"}
-
-{"page":3,"id":27,"obj":"label","x":220,"y":370,"w":125,"h":45,"text_color":"#000","text_font":32,"text":"Day3"}
-
-{"page":3,"id":28,"obj":"label","x":220,"y":345,"w":125,"h":45,"text_color":"#000","text_font":24,"text":"Day After"}
-
-"forcast Temp"
-{"page":3,"id":29,"obj":"label","x":15,"y":405,"w":80,"h":45,"text_color":"#FF3333","text_font":32,"text":"high"}
-
-{"page":3,"id":30,"obj":"label","x":115,"y":405,"w":80,"h":45,"text_color":"#FF3333","text_font":32,"text":"high"}
-
-{"page":3,"id":31,"obj":"label","x":220,"y":405,"w":80,"h":45,"text_color":"#FF3333","text_font":32,"text":"high"}
-
-{"page":3,"id":33,"obj":"label","x":15,"y":440,"w":80,"h":45,"text_color":"#00FFFF","text_font":32,"text":"low"}
-
-{"page":3,"id":34,"obj":"label","x":115,"y":440,"w":80,"h":45,"text_color":"#00FFFF","text_font":32,"text":"low"}
-
-{"page":3,"id":35,"obj":"label","x":220,"y":440,"w":80,"h":45,"text_color":"#00FFFF","text_font":32,"text":"low"}
-
+"wifi"
+{"page":3,"id":1,"obj":"img","src":"L:/wifi.png","x":60,"y":70,"w":200,"h":240,"auto_size":1}
+{"page":3,"id":2,"obj":"label","x":60,"y":300,"w":200,"h":150,"align":"center","text":"\uE5A9","text_font":125,"text_color":"white"}
 
 
 "media"
