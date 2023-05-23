@@ -7,7 +7,7 @@ Thanks to all that have shared their
 code examples 
 sreen shots and photos of Wt32-SCO1 plus.
 
-<img src="LanbonL8/screenshots/InShot_20230523_154742730.jpg" width="300">
+<img src="LanbonL8/Screenshots/InShot_20230523_154742730.jpg" width="300">
 <img src="LanbonL8/screenshots/InShot_20230523_154900432.jpg" width="300">
 <img src="LanbonL8/screenshots/InShot_20230523_155059019.jpg" width="300">
 <img src="LanbonL8/screenshots/InShot_20230523_155256780.jpg" width="300">
