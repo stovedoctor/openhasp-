@@ -1,8 +1,5 @@
-
-"plate35 lanbon L8"
-
+"plate35 kitchen"
 "-D TFT_WIDTH=240 -D TFT_HEIGHT=320"
-
 {"id":0,"bg_color":"#000"}
 {"page":1,"id":0,"bg_color":"#000","bg_main_stop":255}
 {"page":2,"id":0,"bg_color":"#000","bg_main_stop":255}
@@ -19,27 +16,28 @@
 
 
 "Home page"
-{"page":1,"id":1,"obj":"obj","x":5,"y":55,"w":230,"h":90,"click":0,"bg_color":"#caffff"}
+{"page":1,"id":1,"obj":"obj","x":5,"y":55,"w":230,"h":102,"click":0,"bg_color":"#caffff","bg_main_stop":255}
 
 {"page":1,"id":2,"obj":"label","x":1,"y":0,"w":230,"h":45,"align":"center","text":"Kitchen Counter","parentid":1,"text_font":30,"text_color":"black"}
-{"page":1,"id":3,"obj":"btn","x":1,"y":33,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"White \uE6E8 ","align":"center","text_font":24,"text_color01":"yellow","parentid":1,"bg_color":"#0000FF"}
-{"page":1,"id":4,"obj":"btn","x":120,"y":33,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"OFF \uE6E8 ","align":"center","text_font":24,"text_color01":"yellow","parentid":1,"bg_color":"#0000FF"}
 
-{"page":1,"id":5,"obj":"btn","x":6,"y":160,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"Kitchen \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow","bg_color":"#0000FF"}
-{"page":1,"id":6,"obj":"btn","x":126,"y":160,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"Dining \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow","bg_color":"#0000FF"}
+"button to turn counter full white all 4 chanels to 255, long press to page 6 for color picker"
+{"page":1,"id":3,"obj":"btn","x":1,"y":33,"w":112,"h":63,"radius":30,
+"toggle":0,"text":"White \uE6E8 ","align":"center","text_font":29,"text_color01":"yellow","parentid":1,"bg_grad_color":"#0000FF","bg_grad_stop":255,"bg_main_stop":128,"bg_color":"#0000FF"}
 
-{"page":1,"id":7,"obj":"slider","x":25,"y":230,"w":190,"h":25,"min":0,"max":255,"bg_color":"white","bg_color20":"#0000FF","bg_color10":"yellow"}
+{"page":1,"id":4,"obj":"btn","x":119,"y":33,"w":112,"h":63,"radius":30,
+"toggle":0,"text":"OFF/ON \uE6E8 ","align":"center","text_font":29,"text_color01":"yellow","parentid":1,"bg_color":"#0000FF"}
+
+{"page":1,"id":5,"obj":"btn","x":6,"y":160,"w":112,"h":63,"radius":30,
+"toggle":true,"text":"Kitchen \uE6E8 ","align":"center","text_font":24,"text_color01":"yellow","bg_color":"#0000FF"}
+{"page":1,"id":6,"obj":"btn","x":126,"y":160,"w":112,"h":63,"radius":30,
+"toggle":true,"text":"Dining \uE6E8 ","align":"center","text_font":24,"text_color01":"yellow","bg_color":"#0000FF"}
+
+{"page":1,"id":7,"obj":"slider","x":25,"y":236,"w":190,"h":25,"min":0,"max":255,"bg_color":"white","bg_color20":"#0000FF","bg_color10":"yellow"}
 {"page":1,"id":8,"obj":"label","x":10,"y":-5,"w":180,"h":25,"text_color":"#000","text_font":24,"text":"Living Room Light","click":0,"parentid":7}
 
+"front of house LONG PRESS "
 {"page":1,"id":9,"obj":"btn","x":3,"y":280,"w":232,"h":30,"radius":30,
 "toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":26,"text_color01":"yellow","toggle":false,"bg_color":"#0000FF"}
-
-
-
 
 "pag2 lights"
 {"page":2,"id":1,"obj":"btn","x":1,"y":55,"w":115,"h":50,"radius":30,
@@ -62,11 +60,9 @@
 {"page":2,"id":8,"obj":"btn","x":125,"y":222,"w":115,"h":50,"radius":30,
 "toggle":true,"text":"Door \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
 
+"long press front of house off"
 {"page":2,"id":9,"obj":"btn","x":1,"y":285,"w":234,"h":30,"radius":30,
 "toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow","toggle":false}
-
-
-"weather"
 
 "weather"
 
@@ -80,8 +76,7 @@
 {"page":3,"id":17,"obj":"label","x":80,"y":69,"w":155,"h":40,"align":"center","text":"condition","parentid":2}
 {"page":3,"id":19,"obj":"label","x":80,"y":81,"w":60,"h":30,"text":"#000000 \u2022# #909090 \u2022#","parentid":2,"text_font":24,"align":"center","text_color":"grey"}
 
-
-
+"tab view to scroll to next day"
 {"page":3,"id":10,"obj":"tabview","x":0,"y":0,"w":239,"h":200,"parentid":2,"btn_pos":0,"bg_opa":0,"border_width":0}
 {"page":3,"id":11,"obj":"tab","parentid":10}
 {"page":3,"id":12,"obj":"tab","parentid":10}
@@ -94,27 +89,21 @@
 {"page":3,"id":32,"obj":"label","x":130,"y":135,"w":50,"h":50,"align":"center","text":"00.0","parentid":11,"pad_top":-2,"text_font":20,"click":0}
 {"page":3,"id":33,"obj":"img","x":195,"y":125,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":11,"click":0}
 
-
-"2nd tab"
-
+"2nd tab next day weather"
 {"page":3,"id":61,"obj":"label","x":3,"y":100,"w":145,"h":50,"align":"left","text":"date+1","parentid":12,"pad_top":3,"click":0}
 {"page":3,"id":62,"obj":"label","x":105,"y":106,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"text_font":18,"text_color":"Navy","click":0}
 {"page":3,"id":63,"obj":"label","x":145,"y":106,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"text_font":18,"text_color":"Blush","click":0}
 {"page":3,"id":64,"obj":"img","x":195,"y":98,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":12,"click":0}
-
 
 {"page":3,"id":71,"obj":"label","x":3,"y":125,"w":145,"h":50,"align":"left","text":"date+2","parentid":12,"pad_top":3,"click":0}
 {"page":3,"id":72,"obj":"label","x":105,"y":130,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"text_font":18,"text_color":"Navy","click":0}
 {"page":3,"id":73,"obj":"label","x":145,"y":130,"w":40,"h":50,"align":"center","text":"00.0","parentid":12,"text_font":18,"text_color":"Blush","click":0}
 {"page":3,"id":74,"obj":"img","x":195,"y":122,"w":32,"h":32,"src":"L:/openhasp_dummy_img.png","parentid":12,"click":0}
 
-
-
 {"page":3,"id":114,"obj":"obj","x":1,"y":210,"w":117,"h":50,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff","bg_main_stop":255}
 {"page":3,"id":115,"parentid":114,"obj":"label","x":0,"y":0,"w":30,"h":50,"text_color":"#000","text_font":24,"text":"\uE58E"}
 {"page":3,"id":116,"parentid":114,"obj":"label","x":0,"y":20,"w":117,"h":50,"text_color":"#000","text_font":24,"text":"xx.x%","align":"center"}
 {"page":3,"id":162,"parentid":114,"obj":"label","x":0,"y":0,"w":117,"h":50,"text_color":"#000","text_font":16,"text":"Humidity","align":"center"}
-
 
 {"page":3,"id":117,"obj":"obj","x":122,"y":210,"w":117,"h":50,"radius":10,"click":0,"border_side":0,"bg_color":"gold","bg_main_stop":255}
 {"page":3,"id":118,"parentid":117,"obj":"label","x":0,"y":0,"w":30,"h":50,"text_color":"#000","text_font":24,"text":"\uE599"}
@@ -133,28 +122,25 @@
 {"page":3,"id":206,"parentid":204,"obj":"label","x":0,"y":20,"w":117,"h":50,"text_color":"#000","text_font":24,"text":"xx.x°","align":"center"}
 {"page":3,"id":252,"parentid":204,"obj":"label","x":0,"y":0,"w":117,"h":50,"text_color":"#000","text_font":16,"text":"Rate PrH","align":"center"}
 
-
-
-
-
 "-D TFT_WIDTH=240 -D TFT_HEIGHT=320"
-"media"
+"Spotify media"
+
+"album cover in background"
 {"page":4,"id":50,"obj":"obj","x":1,"y":58,"w":235,"h":250,"radius":6,"clip_corner":1,"hidden":1}
 {"page":4,"id":51,"obj":"img","x":0,"y":0,"w":235,"h":250,"parentid":50,"src":"","auto_size":1}
 
 {"page":4,"id":1,"obj":"obj","x":8,"y":60,"w":110,"h":80,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
   ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10
 }
+
 {"page":4,"id":2,"obj":"label","x":8,"y":65,"w":110,"h":32,"text_color":"#fff","text_font":32,"text":"\uE3E4","align":1,"click":false}
 {"page":4,"id":3,"obj":"label","x":8,"y":100,"w":110,"h":25,"text_color":"#fff","text_font":24,"text":"Pause","align":1,"click":false}
 
-
+"start spot cast"
 {"page":4,"id":16,"obj":"obj","x":8,"y":147,"w":110,"h":80,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
   ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
 {"page":4,"id":17,"obj":"label","x":8,"y":152,"w":110,"h":32,"text_color":"#fff","text_font":32,"text":"\uE75A","align":1,"click":false}
 {"page":4,"id":18,"obj":"label","x":8,"y":185,"w":110,"h":25,"text_color":"#fff","text_font":24,"text":"Start","align":1,"click":false}
-
-
 
 {"page":4,"id":10,"obj":"obj","x":8,"y":235,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
   ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
@@ -167,97 +153,28 @@
 {"page":4,"id":15,"obj":"label","x":125,"y":270,"w":110,"h":50,"text_color":"#FFF","text_font":24,"text":"Next","align":1,"click":false}
 
 "volume"
+"kitchen"
 {"page":4,"id":19,"obj":"slider","x":140,"y":65,"w":30,"h":150,"min":0,"max":100,"bg_opa":150,"border_color":"#00FF00","border_width":2,"radius20":15,"bg_opa20":150,"bg_opa10":150,"border_color20":"#00FF00","border_width20":2,"shadow_color20":"#00FF00","shadow_ofs_y20":-3,"shadow_ofs_x20":-3,"shadow_width20":10}
-
+"living room"
 {"page":4,"id":22,"obj":"slider","x":200,"y":65,"w":30,"h":150,"min":0,"max":100,"bg_opa":150,"border_color":"#00FF00","border_width":2,"radius20":15,"bg_opa20":150,"bg_opa10":150,"border_color20":"#00FF00","border_width20":2,"shadow_color20":"#00FF00","shadow_ofs_y20":-3,"shadow_ofs_x20":-3,"shadow_width20":10}
   
-  
+ 
 {"page":4,"id":23,"obj":"label","x":200,"y":60,"w":30,"h":100,"text_font":24,"text":"\uE57E","text_color":"#fff","align":"center","click":false}
 {"page":4,"id":20,"obj":"label","x":140,"y":60,"w":30,"h":100,"text_font":24,"text":"\uE57E","text_color":"#fff","align":"center","click":false}
 {"page":4,"id":24,"obj":"label","x":140,"y":85,"w":30,"h":100,"text_font":32,"text_color":"#fff","text":"K","align":"center","click":false}
 {"page":4,"id":21,"obj":"label","x":200,"y":85,"w":30,"h":100,"text_font":32,"text_color":"#fff","text":"L","align":"center","click":false}
 
-
-"wifi QR code"
+"wifi QR CODE"
 
 {"page":5,"id":1,"obj":"img","src":"L:/wifi.png","x":20,"y":60,"w":200,"h":240,"auto_size":1}
 
 
+"counter lights color picker 6"
+{"comment":"------------------Page 6 - counter Lights color picker"}
 
-"test page 6"
-"pag2 lights"
-{"page":6,"id":1,"obj":"btn","x":1,"y":55,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Kitchen \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":6,"id":3,"obj":"btn","x":125,"y":55,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Office \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":6,"id":2,"obj":"btn","x":1,"y":110,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Dining \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":6,"id":4,"obj":"btn","x":125,"y":110,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Hallway \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":6,"id":5,"obj":"slider","x":25,"y":174,"w":190,"h":30,"min":0,"max":255,"bg_color":"white"}
-{"page":6,"id":6,"obj":"label","x":35,"y":173,"w":180,"h":30,"text_color":"#000","text_font":24,"text":"Living Room Light","click":0}
-
-{"page":6,"id":7,"obj":"btn","x":1,"y":222,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Patio \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-{"page":6,"id":8,"obj":"btn","x":125,"y":222,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Door \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":6,"id":9,"obj":"btn","x":1,"y":285,"w":234,"h":30,"radius":30,
-"toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow","toggle":false}
-
-"kitchen control lights"
-{"page":7,"id":1,"obj":"btn","x":1,"y":55,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Kitchen \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":7,"id":3,"obj":"btn","x":125,"y":55,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Counter \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":7,"id":2,"obj":"btn","x":1,"y":110,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Dining \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":7,"id":4,"obj":"btn","x":125,"y":110,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Hallway \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-
-{"page":7,"id":5,"obj":"slider","x":25,"y":174,"w":190,"h":30,"min":0,"max":255,"bg_color":"white"}
-{"page":7,"id":6,"obj":"label","x":35,"y":173,"w":180,"h":30,"text_color":"#000","text_font":24,"text":"Living Room Light","click":0}
-
-{"page":7,"id":7,"obj":"btn","x":1,"y":222,"w":115,"h":50,"radius":30,
-"toggle":true,"text":"Office \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow"}
-{"page":7,"id":8,"obj":"btn","x":125,"y":222,"w":115,"h":50,"radius":30,
-"toggle":false,"text":"TV time \uE6E8 ","align":"center","text_font":22,"text_color02":"yellow"}
-
-{"page":7,"id":9,"obj":"btn","x":1,"y":285,"w":234,"h":30,"radius":30,
-"toggle":false,"text":"All Front of House \uE6E8 ","align":"center","text_font":22,"text_color02":"yellow","toggle":false}
-
-{"page":8,"id":1,"obj":"obj","x":5,"y":55,"w":230,"h":90,"click":0,"bg_color":"#caffff"}
-
-{"page":8,"id":2,"obj":"label","x":1,"y":0,"w":230,"h":45,"align":"center","text":"Kitchen Counter","parentid":1,"text_font":30,"text_color":"black"}
-{"page":8,"id":3,"obj":"btn","x":1,"y":33,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"White \uE6E8 ","align":"center","text_font":24,"text_color01":"yellow","parentid":1,"bg_color":"#0000FF"}
-{"page":8,"id":4,"obj":"btn","x":120,"y":33,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"OFF \uE6E8 ","align":"center","text_font":24,"text_color01":"yellow","parentid":1,"bg_color":"#0000FF"}
-
-{"page":8,"id":5,"obj":"btn","x":6,"y":148,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"Kitchen \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow","bg_color":"#0000FF"}
-{"page":8,"id":6,"obj":"btn","x":126,"y":148,"w":108,"h":50,"radius":30,
-"toggle":true,"text":"Dining \uE6E8 ","align":"center","text_font":22,"text_color01":"yellow","bg_color":"#0000FF"}
-
-{"page":8,"id":7,"obj":"slider","x":25,"y":210,"w":190,"h":25,"min":0,"max":255,"bg_color":"white","bg_color20":"#0000FF","bg_color10":"yellow"}
-{"page":8,"id":8,"obj":"label","x":10,"y":-5,"w":180,"h":25,"text_color":"#000","text_font":24,"text":"Living Room Light","click":0,"parentid":7}
-
-{"page":8,"id":9,"obj":"btn","x":3,"y":283,"w":232,"h":30,"radius":30,
-"toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":26,"text_color01":"yellow","toggle":false,"bg_color":"#0000FF"}
-
-"pellets"
-{"page":9,"id":16,"obj":"label","x":136,"y":323,"w":60,"h":60,"text":"pellet","text_font":20,"text_color":"white"}
-{"page":9,"id":17,"obj":"label","x":136,"y":350,"w":60,"h":60,"text":"Level","text_font":20,"text_color":"white"}
-{"page":9,"id":18,"obj":"img","x":139,"y":375,"w":39,"h":100,"auto_size":0,"src":"L:/pelletBar.png","click":0,"image_opa":255}
-{"page":9,"id":19,"obj":"obj","x":139, "y":375,"w":39,"h":100,"radius":5,"bg_color":"black","click":0,"shadow_opa":250,"shadow_color":"white"}
-
-{"page":10,"id":50,"obj":"obj","x":1,"y":70,"w":230,"h":250,"radius":6,"clip_corner":1,"hidden":0}
-{"page":10,"id":51,"obj":"img","x":0,"y":0,"w":230,"h":250,"parentid":50,"src":"","auto_size":1}
+{"page":6,"id":14,"obj":"btn","x":5,"y":60,"w":50,"h":30,"radius":10,"toggle":false,"text":"\uF40B","text_font":24}
+{"Page":6,"id":16,"obj":"cpicker","x":45,"y":54,"w":155,"h":155}
+{"page":6,"id":18,"obj":"slider","x":210,"y":55,"h":175,"w":15,"min":1,"max":255}
+{"page":6,"id":20,"obj":"label","x":1,"y":210,"w":100,"h":45,"text":"White","text_font":24,"align":"left","text_color":"white","radius":0,"border_side":0}
+{"page":6,"id":21,"obj":"btn","x":5,"y":180,"w":50,"h":30,"radius":10,"toggle":false,"text":"\uE335"}
 
