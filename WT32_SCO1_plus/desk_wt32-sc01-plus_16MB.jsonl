@@ -1,14 +1,11 @@
 "desk at hallway 320 W x 480 H"
 
-
 {"id":0,"bg_color":"#000"}
 {"page":1,"id":0,"bg_color":"#000"}
 {"page":2,"id":0,"bg_color":"#000"}
 {"page":3,"id":0,"bg_color":"#000"}
 {"page":4,"id":0,"bg_color":"white"}
 {"page":5,"id":0,"bg_color":"#000"}
-
-
 
 {"page":0,"id":1,"obj":"obj","action":"p1","x":1,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":24,"value_color":"#000","bg_color":"#bdb2ff","value_str":"\uE2DC"}
 {"page":0,"id":2,"obj":"obj","action":"p2","x":66,"y":5,"w":60,"h":60,"radius":15,"click":true,"border_side":0,"value_font":32,"value_color":"#000","bg_color":"#caffbf","value_str":"\uF40B"}
@@ -24,7 +21,6 @@
 
 {"page":1,"id":32,"obj":"label","x":5,"y":115,"w":145,"h":70,"text_color":"#000","text_font":28,"text":"Living Room","align":"center"}
 
-
 {"page":1,"id":4,"obj":"obj","x":170,"y":75,"w":145,"h":80,"radius":10,"click":0,"border_side":0,"bg_color":"#bdb2ff"}
 {"page":1,"id":5,"obj":"label","x":165,"y":75,"w":145,"h":70,"text_color":"#000","text_font":42,"text":"\uE50F"}
 {"page":1,"id":6,"obj":"label","x":170,"y":70,"w":145,"h":70,"text_color":"#000","text_font":42,"text":"xx.x°","align":"center"}
@@ -32,8 +28,6 @@
 
 {"page":1,"id":7,"obj":"dropdown","x":5,"y":220,"w":310,"h":30,"text_font":31,"options":"Light Scene\nTV time\nBright\nBed Time","bg_color":"#bdb2ff","direction":"down"}
 {"page":1,"id":8,"obj":"dropdown","x":5,"y":160,"w":310,"h":30,"text_font":31,"options":"Living Room Off\nLiving Room Bright\nLiving Room Med\nLiving Room Dim","bg_color":"#caffbf"}
-
-
 
 {"page":1,"id":63,"obj":"label","x":0,"y":275,"w":182,"h":40,"text_color":"white","text":"\uE50FClimate Settings"}
 {"page":1,"id":25,"obj":"switch","x":250,"y":279,"w":65,"h":30,"radius":25,"radius20":25}
@@ -47,15 +41,10 @@
 {"page":1,"id":29,"obj":"label","x":5,"y":325,"w":60,"h":60,"text":"\uE717","text_font":45,"text_color":"blue"}
 
 "pellets"
-
-
-"pellets"
 {"page":1,"id":16,"obj":"label","x":136,"y":323,"w":60,"h":60,"text":"pellet","text_font":20,"text_color":"white"}
 {"page":1,"id":17,"obj":"label","x":136,"y":350,"w":60,"h":60,"text":"Level","text_font":20,"text_color":"white"}
 {"page":1,"id":18,"obj":"img","x":139,"y":375,"w":39,"h":100,"auto_size":0,"src":"L:/pelletBar.png","click":0,"image_opa":255}
 {"page":1,"id":19,"obj":"obj","x":139, "y":375,"w":39,"h":100,"radius":5,"bg_color":"black","click":0,"shadow_opa":250,"shadow_color":"white"}
-
-
 
 "pellet heat roller thermostat"
 {"page":1,"id":27,
@@ -88,11 +77,9 @@
 {"page":2,"id":9,"obj":"btn","x":1,"y":410,"w":319,"h":60,"radius":30,
 "toggle":true,"text":"All Front of House \uE6E8 ","align":"center","text_font":30,"text_color01":"yellow","toggle":false}
 
-
 "wifi"
 {"page":3,"id":1,"obj":"img","src":"L:/wifi.png","x":60,"y":70,"w":200,"h":240,"auto_size":1}
 {"page":3,"id":2,"obj":"label","x":60,"y":300,"w":200,"h":150,"align":"center","text":"\uE5A9","text_font":125,"text_color":"white"}
-
 
 "media"
 {"page":4,"id":50,"obj":"obj","x":1,"y":70,"w":319,"h":410,"radius":6,"clip_corner":1,"hidden":1}
@@ -104,13 +91,10 @@
 {"page":4,"id":2,"obj":"label","x":18,"y":140,"w":110,"h":32,"text_color":"#fff","text_font":32,"text":"\uE3E4","align":1,"click":false}
 {"page":4,"id":3,"obj":"label","x":18,"y":175,"w":110,"h":25,"text_color":"#fff","text_font":24,"text":"Pause","align":1,"click":false}
 
-
 {"page":4,"id":16,"obj":"obj","x":18,"y":237,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
   ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
 {"page":4,"id":17,"obj":"label","x":18,"y":238,"w":110,"h":32,"text_color":"#fff","text_font":32,"text":"\uE75A","align":1,"click":false}
 {"page":4,"id":18,"obj":"label","x":18,"y":270,"w":110,"h":25,"text_color":"#fff","text_font":24,"text":"Start","align":1,"click":false}
-
-
 
 {"page":4,"id":10,"obj":"obj","x":198,"y":140,"w":110,"h":70,"radius":25,"click":true,"bg_opa":150,"border_color":"#00FF00","border_width":2
   ,"shadow_color":"#00FF00","shadow_ofs_y":-3,"shadow_ofs_x":-3,"shadow_width":10}
@@ -128,14 +112,10 @@
 {"page":4,"id":22,"obj":"slider","x":25,"y":390,"w":280,"h":35,"min":0,"max":100,"bg_opa":150,"border_color":"#00FF00","border_width":2,"radius20":15,"bg_opa20":150,"bg_opa10":150,"border_color20":"#00FF00","border_width20":2,"shadow_color20":"#00FF00","shadow_ofs_y20":-3,"shadow_ofs_x20":-3,"shadow_width20":10}
 {"page":4,"id":67,"obj":"label","x":25,"y":390,"w":280,"h":40,"text_color":"#fff","text_font":28,"text":"Living Room  \uE57E","click":0,"align":"center"}  
   
-
-
 "play list"
 {"page":4,"id":40,"obj":"dropdown","x":5,"y":435,"w":310,"h":30,"text_font":31,"options":"Relax\nCleaning \nRock out ","bg_color":"#caffbf","bg_opa":150}
 
 "weather"
-
-
 {"page":5,"id":2,"obj":"obj","x":1,"y":71,"w":318,"h":255,"click":0}
 
 {"page":5,"id":14,"obj":"img","src":"L:/openhasp_dummy_img.png","parentid":2,"auto_size":1,"w":128,"offset_x":-6,"offset_y":-10}
@@ -144,8 +124,6 @@
 {"page":5,"id":16,"obj":"label","x":140,"y":34,"w":155,"h":40,"align":"center","text":"00.0°C","parentid":2,"text_font":42}
 {"page":5,"id":17,"obj":"label","x":140,"y":78,"w":155,"h":40,"align":"center","text":"condition","parentid":2}
 {"page":5,"id":19,"obj":"label","x":140,"y":100,"w":60,"h":30,"text":"#000000 \u2022# #909090 \u2022#","parentid":2,"text_font":24,"align":"center","text_color":"grey"}
-
-
 
 {"page":5,"id":10,"obj":"tabview","x":0,"y":0,"w":318,"h":360,"parentid":2,"btn_pos":0,"bg_opa":0,"border_width":0}
 {"page":5,"id":11,"obj":"tab","parentid":10}
@@ -196,7 +174,6 @@
 {"page":5,"id":116,"obj":"label","x":5,"y":355,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x%","align":"center"}
 {"page":5,"id":162,"obj":"label","x":40,"y":335,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Humidity"}
 
-
 {"page":5,"id":117,"obj":"obj","x":165,"y":330,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"gold"}
 {"page":5,"id":118,"obj":"label","x":165,"y":330,"w":40,"h":70,"text_color":"#000","text_font":32,"text":"\uE599"}
 {"page":5,"id":119,"obj":"label","x":165,"y":355,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"XX.XX KW","align":"center"}
@@ -208,13 +185,7 @@
 {"page":5,"id":203,"obj":"label","x":5,"y":430,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
 {"page":5,"id":232,"obj":"label","x":40,"y":410,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rain Today"}
 
-
 {"page":5,"id":204,"obj":"obj","x":165,"y":405,"w":150,"h":70,"radius":10,"click":0,"border_side":0,"bg_color":"#66B2FF"}
 {"page":5,"id":205,"obj":"label","x":165,"y":405,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"\uE596"}
 {"page":5,"id":206,"obj":"label","x":165,"y":430,"w":150,"h":70,"text_color":"#000","text_font":32,"text":"xx.x°","align":"center"}
 {"page":5,"id":252,"obj":"label","x":172,"y":410,"w":150,"h":70,"text_color":"#000","text_font":24,"text":"Rate PrH","align":"center"}
-
-
-
-
-
