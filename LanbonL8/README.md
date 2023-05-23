@@ -8,7 +8,7 @@ code examples
 sreen shots and photos of Wt32-SCO1 plus.
 
 <img src="Screenshots/InShot_20230523_154742730.jpg" width="300">
-<img src="screenshots/InShot_20230523_154900432.jpg" width="300">
-<img src="screenshots/InShot_20230523_155059019.jpg" width="300">
-<img src="screenshots/InShot_20230523_155256780.jpg" width="300">
-<img src="screenshots/Screenshot_20230523-155201.png" width="300">
+<img src="Screenshots/InShot_20230523_154900432.jpg" width="300">
+<img src="Screenshots/InShot_20230523_155059019.jpg" width="300">
+<img src="Screenshots/InShot_20230523_155256780.jpg" width="300">
+<img src="Screenshots/Screenshot_20230523-155201.png" width="300">
