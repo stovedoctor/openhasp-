@@ -1,1 +1,40 @@
+alias: Openhasp POPup text box
+description: >-
+  display popup on all openhasp panels the Dashboard text box data. Clear popup
+  if text box is Empty or cleared. popupID#75
+trigger:
+  - platform: state
+    entity_id:
+      - input_text.ha_panel_popup_text_box
+    id: text
+    enabled: true
+condition: []
+action:
+  - service: mqtt.publish
+    data:
+      topic: hasp/plates/command/jsonl
+      payload_template: >-
+        {"page":0,"id":75,"obj":"msgbox","bg_color":"white","text_color":"Red","text":"
+            {{ states("input_text.ha_panel_popup_text_box") }} ","options":["Close"]}
+  - type: turn_on
+    device_id: 88b53314416b4ce885e73c349b11de1b
+    entity_id: light.desk1_backlight
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: ff2aa76f6ac729f1e9e243fa22ce23e1
+    entity_id: light.plate35_backlight
+    domain: light
+    brightness_pct: 100
+  - type: turn_on
+    device_id: e8173c788aa326e57adbc645b2d954c8
+    entity_id: light.desk_backlight
+    domain: light
+  - condition: state
+    entity_id: input_text.ha_panel_popup_text_box
+    state: ""
+  - service: mqtt.publish
+    data:
+      topic: hasp/plates/command/p0b75.delete
+mode: single
 
